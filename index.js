@@ -3,12 +3,16 @@
 
 
 let onSystem = confirm("Desea ingresar al sistema ? ");
-let listaProductos = [{}];    /* Va a ser un array de  objetos que
+let listaProductos = [];
+let id = 0;
+
+/* Va a ser un array de  objetos que
 
 
 tenga 
     [
         {
+            id: idProducto
             nombreProd: Producto
             cantidadProducto: Cantidad
             Precio: Precio
@@ -26,13 +30,17 @@ while (onSystem) {
 
     if (ValidarDatos(NombreProd, CantidadProd, Precio)) {
 
+
         let total = calcular(CantidadProd, Precio)
         alert(`total: $${total} , producto: ${NombreProd} `)
-        let producto = {NombreProd,CantidadProd,Precio,total}
+        id++
+        let producto = { id, NombreProd, CantidadProd, Precio, total }
         agregarProducto(producto);
-
-
+        alert(JSON.stringify(listaProductos,null,3));
         onSystem = confirm("Desea seguir en el sistema calculando precios o Salir? ")
+
+
+
     } else {
 
         alert("Error , Datos invalidos o inexistentes")
@@ -58,15 +66,14 @@ function ValidarDatos(NombreProd, CantidadProd, Precio) {
     return true
 }
 
-function calcular(CantidadProd,Precio){
-    return CantidadProd+Precio
+function calcular(CantidadProd, Precio) {
+    return CantidadProd + Precio
 };
 
-function agregarProducto(producto){
-   
+function agregarProducto(producto) {
+
     listaProductos.push(producto);
     console.log(listaProductos);
 }
 
 
-   
