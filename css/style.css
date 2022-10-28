@@ -1,16 +1,54 @@
+body {
+  color: white;
+  background-color: rgb(28, 28, 28);
+}
 
+/* NAV CSS  */
+.logo {
+  padding: 20px;
+  font-size: 30px;
+  font-weight: 300;
+  color: aqua;
+}
 
-body{
-    color: white;
-    background-color: rgb(28, 28, 28);
+.cart {
+  font-size: 2.5rem;
+  margin-right: 30px;
+  cursor: pointer;
+  transition: all 0.3s;
+  
+}
+.cart:hover {
+  color: aqua;
+  transform: scale(20px);
 }
 
 
 
-.logo{
-    padding: 20px;
-    font-size: 30px;
-    font-weight: 300;
-    color: aqua;
 
+
+/* HEADER CSS */
+.h-container .miHeader {
+  color: white;
+  background-image: url("../assets/i4.png");
+  background-size: cover;
+  background-position: center;
+}
+.h-container .miHeader .intro {
+  display: flex;
+  flex-direction: column;
+  width: 30%;
+  height: 90vh;
+  padding: 3%;
+  justify-content: center;
+  background-color: rgba(18, 18, 18, 0.925);
+  align-items: center;
+}
+
+
+
+/* PRODUCT CARDS CSS */
+
+.present-cards{
+    height: 100vh;
 }
