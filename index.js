@@ -1,79 +1,91 @@
+//Declaraciones 
+
+let carrito = [];
+console.log(carrito);
 
 
+//Query de elementos
+const contenedorCard = document.querySelector('#contenedorCards');
+const cartCount = document.querySelector('.cartCount');
+const cartContainer = document.querySelector('.cartContainer');
 
 
-let onSystem = confirm("Desea ingresar al sistema ? ");
-let listaProductos = [];
-let id = 0;
+//Funciones
 
-/* Va a ser un array de  objetos que
-
-
-tenga 
-    [
-        {
-            id: idProducto
-            nombreProd: Producto
-            cantidadProducto: Cantidad
-            Precio: Precio
-            total: Total
-
-        } 
-    ]
-*/
-
-while (onSystem) {
-
-    let NombreProd = prompt("Ingrese Nombre del producto");
-    let CantidadProd = parseFloat(prompt("Ingrese Cantidad de productos"))
-    let Precio = parseFloat(prompt("ingrese precio Del producto"));
-
-    if (ValidarDatos(NombreProd, CantidadProd, Precio)) {
-
-
-        let total = calcular(CantidadProd, Precio)
-        alert(`total: $${total} , producto: ${NombreProd} `)
-        id++
-        let producto = { id, NombreProd, CantidadProd, Precio, total }
-        agregarProducto(producto);
-        alert(JSON.stringify(listaProductos,null,3));
-        onSystem = confirm("Desea seguir en el sistema calculando precios o Salir? ")
-
-
-
-    } else {
-
-        alert("Error , Datos invalidos o inexistentes")
-        onSystem = false;
-
-    }
-
+const renderProductos = () =>{
+    listaProductos.forEach((producto)=>{
+        const card = document.createElement('div');
+        card.classList.add('card','bg-dark')
+        card.style = 'width: 28rem';
+        card.innerHTML = `
+        <img class="card-img-top p-4" src="${producto.img}" alt="Card image cap">
+        <div class="card-body">
+            <h5 class="card-title">${producto.nombreProd}</h5>
+            <h3>$${producto.precio}</h3>
+            <p class="card-text">${producto.descripcion}</p>
+            <a class="btn btn-info pcard"data-id=${producto.id}>Añadir al carrito</a>
+        </div>
+        `
+        contenedorCard.append(card);
+    })
+    contenedorCard.classList.add('gap-3');
 
 }
-alert("ADIOS USUARIO");
 
 
-function ValidarDatos(NombreProd, CantidadProd, Precio) {
-
-    if (isNaN(CantidadProd) || isNaN(Precio)) return false;
-
-    if (!NombreProd || !CantidadProd || !Precio) {
-        alert("TODOS LOS DATOS SON NECESARIOS")
-        NombreProd = "Faltan Datos."
-        return false
-    }
-
-    return true
+const agregarProductos = () =>{
+    const cardSelector = document.querySelectorAll('.pcard')
+    cardSelector.forEach((el)=>{
+        el.addEventListener('click',(e)=>{
+            let productoAgregar = listaProductos.find(el => el.id == e.target.getAttribute("data-id"))
+            carrito.push(productoAgregar);
+            cartCount.innerText = carrito.length;
+            insertarProductoCarrito()
+        })
+    })
 }
 
-function calcular(CantidadProd, Precio) {
-    return CantidadProd + Precio
-};
+const insertarProductoCarrito = () =>{
+    cartContainer.innerHTML = "";
+    carrito.forEach((pEncarro)=>{
+        
+        const productoEnCarro = document.createElement('div');
+        productoEnCarro.classList.add('productoCarro','p-3');
+        productoEnCarro.innerHTML = `
+        <div class="row rounded">
+            <img class="col-sm-12 col-md-4" src="${pEncarro.img}" width="200" heigth="200" alt="Card image cap">
+            <div class="p-3 col-12 col-xl-8">
+                <div>
+                    <h5 class="">${pEncarro.nombreProd}</h5>
+                    <h3>$${pEncarro.precio}</h3>
+                    <p class="">${pEncarro.descripcion}</p>
+                </div>
+                <div>
+                <a class="btn btn-info pcard"data-id=${pEncarro.id}>Eliminar del carro</a>
+                </div>
+            </div>
+        </div>
+        
+        `
 
-function agregarProducto(producto) {
+        cartContainer.append(productoEnCarro)
 
-    listaProductos.push(producto);
-    console.log(listaProductos);
+    })
+    
+    
 }
+const quitarProductoCarrito = () =>{
+
+}
+
+
+
+//Event Listeners
+
+
+//Ejecuciones
+renderProductos();
+agregarProductos();
+
 
 

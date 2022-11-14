@@ -1,6 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand&display=swap');
+
 body {
   color: white;
   background-color: rgb(28, 28, 28);
+  font-family: 'Quicksand', sans-serif;
 }
 
 /* NAV CSS  */
@@ -13,10 +16,8 @@ body {
 
 .cart {
   font-size: 2.5rem;
-  margin-right: 30px;
   cursor: pointer;
   transition: all 0.3s;
-  
 }
 .cart:hover {
   color: aqua;
@@ -50,5 +51,76 @@ body {
 /* PRODUCT CARDS CSS */
 
 .present-cards{
-    height: 100vh;
+    padding: 3%;
+}
+
+
+/* FOOTER CSS */
+
+
+.miFooter {
+  grid-area: foo;
+  grid-column: 1/4;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #212121;
+}
+.miFooter .contfooter {
+  width: 100%;
+  font-size: 14px;
+  justify-content: space-around;
+}
+.miFooter .row .foolink {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.miFooter .row .foolink a {
+  justify-content: center;
+  text-decoration: none;
+  color: #fff;
+  margin: 10px;
+}
+.miFooter .row .foolink a:hover {
+  color: aqua;
+  cursor: pointer;
+}
+.miFooter .socialsf {
+  display: flex;
+  justify-content: center;
+}
+.miFooter .socialsf a {
+  margin: 0 20% 0 20%;
+  transition: all 1s;
+}
+
+.s-fb {
+  font-size: 2rem;
+  color: #7e7e7e;
+  transition: all 0.5s;
+}
+
+.s-fb:hover {
+  color: #2d52a3;
+}
+
+.s-ig {
+  font-size: 2rem;
+  color: #7e7e7e;
+  transition: all 0.5s;
+}
+
+.s-ig:hover {
+  color: #bc2a8d;
+}
+
+.s-wpp {
+  font-size: 2rem;
+  color: #7e7e7e;
+  transition: all 0.5s;
+}
+.s-wpp:hover {
+  color: #1da850;
 }
