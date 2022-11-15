@@ -1,6 +1,4 @@
-//Declaraciones 
-
-let carrito = [];
+//Declaraciones
 
 
 //Query de elementos

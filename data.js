@@ -27,4 +27,4 @@ const p9 = new Producto(9,'Sonic impreso 3d',5000,'https://images.cults3d.com/DT
 const p10 = new Producto(10,'Llaveros personalizados impreso 3d',1500,'https://http2.mlstatic.com/D_NQ_NP_660022-MLA44966201066_022021-O.jpg','llavero pequeño impreso 3d')
 
 let listaProductos = [p1,p2,p3,p4,p5,p6,p7,p8,p9,p10];
-
+let carrito = [];
