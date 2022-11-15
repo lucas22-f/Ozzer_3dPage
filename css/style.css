@@ -4,6 +4,8 @@ body {
   color: white;
   background-color: rgb(28, 28, 28);
   font-family: 'Quicksand', sans-serif;
+  min-height: 100vh; 
+  margin:0;
 }
 
 /* NAV CSS  */
@@ -56,6 +58,7 @@ body {
 
 .present-cards{
     padding: 3%;
+    flex: 1;
 }
 
 

@@ -1,5 +1,3 @@
-//Declaraciones
-
 
 //Query de elementos
 const contenedorCard = document.querySelector('#contenedorCards');
@@ -9,7 +7,7 @@ const cartContainer = document.querySelector('.cartContainer');
 
 //Funciones
 
-const renderProductos = () => {
+const renderProductos = () => { // renderizamos productos
     listaProductos.forEach((producto) => {
         const card = document.createElement('div');
         card.classList.add('card', 'bg-dark')
@@ -30,19 +28,20 @@ const renderProductos = () => {
     contenedorCard.classList.add('gap-3');
 }
 
-const agregarArrayCarrito = () => {
+const agregarArrayCarrito = () => { // si hacen click en alguna card agregamos al ARRAY del carrito.
     const cardSelector = document.querySelectorAll('.pcard')
     cardSelector.forEach((el) => {
         el.addEventListener('click', (e) => {
             let productoAgregar = listaProductos.find(el => el.id == e.target.getAttribute("data-id"))
             carrito.push(productoAgregar);
-            cartCount.innerText = carrito.length;
+            cartCount.innerText = carrito.length; // contador para el carrito. 
             alertAddProducto(e.target.getAttribute("data-id"));
             renderCarrito()
         })
     })
 }
-const alertAddProducto = (id) => {
+
+const alertAddProducto = (id) => {// al momento de hacer click en una card lanzamos una alerta en la misma
     const contenedorAlert = document.querySelectorAll('#prodAlert');
     contenedorAlert.forEach((el) => {
         if (el.getAttribute('data-id') == id) {
@@ -55,8 +54,9 @@ const alertAddProducto = (id) => {
     })
 }
 
-const renderCarrito = () => {
+const renderCarrito = () => { // funcion para actualizar el carrito en el dom. 
     cartContainer.innerHTML = "";
+    
     carrito.forEach((pEncarro) => {
 
         const productoEnCarro = document.createElement('div');
@@ -80,12 +80,13 @@ const renderCarrito = () => {
 
     })
 
-    eliminarProductoDelCarro();
-
+    eliminarProductoDelCarro();// llamada a la funcion de eliminar en caso de que se ejecute
+    localStorage.setItem('carrito',JSON.stringify(carrito));//seteamos el carrito en el localStorage
 }
 
 
-const eliminarProductoDelCarro = () => {
+
+const eliminarProductoDelCarro = () => { // funcion para eliminar productos del carrito 1 x 1 
     const cardCartContainer = document.querySelectorAll('.elim')
     cardCartContainer.forEach((el) => {
         el.addEventListener('click', (e) => {
@@ -98,15 +99,19 @@ const eliminarProductoDelCarro = () => {
     })
 }
 
+JSON.parse(localStorage.getItem('carrito')) && JSON.parse(localStorage.getItem('carrito')).forEach((el)=>{  // Actualizamos el carrito con los datos de Local Storage para no perder la informacion.
+    carrito.push(el)
+    cartCount.innerText = carrito.length;
+    renderCarrito()
+})
 
 
-//Event Listeners
 
 
 //Ejecuciones
 
-renderProductos();
-agregarArrayCarrito();
+renderProductos();// Ejecutamos Render De productos.
+agregarArrayCarrito();//Ejecutamos Agregar a nuestro Array de carrito.
 
 
 
