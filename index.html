@@ -13,7 +13,7 @@
 </head>
 
 <body>
-  
+
   <!-- NAV SECTION -->
   <nav class="navbar navbar-dark navbar-expand-lg bg-dark">
     <div class="container-fluid">
@@ -39,14 +39,14 @@
         </ul>
 
         <!-- CART MODAL -->
-        <div class="d-flex mx-3">
+        <div class="d-flex mx-3 cartAnimate">
           <i class="bi bi-cart-check cart" data-bs-toggle="modal" data-bs-target="#cartModal"></i>
           <div class="cartCount">0</div>
         </div>
 
-       
 
-        
+
+
 
 
 
@@ -63,7 +63,7 @@
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body bg-dark cartContainer">
-          
+
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
@@ -76,7 +76,7 @@
 
   <section class="h-container">
     <header class="miHeader">
-      <div class="intro">
+      <div class="intro col-12 col-md-3">
         <h1>Bienvenido a Ozzer_3d</h1>
         <p>
           Hola somos <strong>Ozzer_3d</strong> vendemos productos de la máxima calidad y al mejor precio. Sabemos que
@@ -100,9 +100,21 @@
 
   <div class="present-cards container-fluid" id="productos">
     <h1 class="text-center">Impresiones 3d</h2>
-      <div class="row justify-content-center pt-5" id="contenedorCards">
-        
+      <div class="row justify-content-center">
+        <div class="col-12 col-md-2">Filtros
+          <ul class="filter-menu">
+            <li><a href="#productos" class="filterI" data-id="0">Todo</a> </li>
+            <li><a href="#productos" class="filterI" data-id="1">Personajes</a> </li>
+            <li><a href="#productos" class="filterI" data-id="2">Bazar</a> </li>
+            <li><a href="#productos" class="filterI" data-id="3">Jardineria</a> </li>
+            <li><a href="#productos" class="filterI" data-id="4">Accesorios</a> </li>
+          </ul>
+        </div>
+        <div class="row pt-5 col-10 " id="contenedorCards"></div>
       </div>
+
+
+
   </div>
 
 

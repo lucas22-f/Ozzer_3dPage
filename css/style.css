@@ -32,6 +32,12 @@ body {
   z-index: 1;
   
 }
+.cartAnimate{
+  transition: all 500ms;
+}
+.cartAnimate:hover{
+  transform: scale(1.1);
+}
 
 
 /* HEADER CSS */
@@ -44,7 +50,6 @@ body {
 .h-container .miHeader .intro {
   display: flex;
   flex-direction: column;
-  width: 30%;
   height: 90vh;
   padding: 3%;
   justify-content: center;
@@ -60,7 +65,19 @@ body {
     padding: 3%;
     flex: 1;
 }
-
+.filter-menu{
+  list-style: none;
+  padding: 10%;
+}
+.filterI{
+  text-decoration: none;
+  color: cyan;
+  line-height: 40px;
+  transition: all 300ms;
+}
+.filterI:hover{
+  color: red;
+}
 
 /* FOOTER CSS */
 

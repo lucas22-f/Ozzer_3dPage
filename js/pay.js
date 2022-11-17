@@ -48,7 +48,7 @@ const renderPagoCarrito = () => { // renderizamos el carrito en el dom.
 
 }
 
-const payEndApp = () => {
+const payEndApp = () => { // se defina final de la app vaciando el carrito y dando mensaje de pago.
     let pagoOk = document.querySelector('.alertOk')
     pagoOk.addEventListener('click', (e) => {
         let insertAlert = document.querySelector('#insertAlert')

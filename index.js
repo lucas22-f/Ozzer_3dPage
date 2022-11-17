@@ -3,35 +3,57 @@
 const contenedorCard = document.querySelector('#contenedorCards');
 const cartCount = document.querySelector('.cartCount');
 const cartContainer = document.querySelector('.cartContainer');
-
+const filterI = document.querySelectorAll('.filterI');
 
 //Funciones
 
-const renderProductos = () => { // renderizamos productos
-    listaProductos.forEach((producto) => {
+const renderProductos = (filterID) => { // renderizamos productos
+    if(filterID){
+       let nuevoArr  = listaProductos.filter((el)=> el.categoria == filterID)
+       nuevoArr.forEach((producto) => {
         const card = document.createElement('div');
         card.classList.add('card', 'bg-dark')
-        card.style = 'width: 28rem';
+        card.style = 'width: 22rem';
         card.innerHTML = `
         <img class="card-img-top p-4" src="${producto.img}" alt="Card image cap">
-        
         <div class="card-body">
             <h5 class="card-title">${producto.nombreProd}</h5>
             <h3>$${producto.precio}</h3>
             <p class="card-text">${producto.descripcion}</p>
-            <a class="btn btn-info pcard"data-id=${producto.id}>Añadir al carrito</a>
+            <a class="btn btn-info pcard" data-id=${producto.id}>Añadir al carrito</a>
         </div>
         <div class="" id="prodAlert" data-id="${producto.id}"></div>
         `
         contenedorCard.append(card);
     })
+    }else{
+        listaProductos.forEach((producto) => {
+            const card = document.createElement('div');
+            card.classList.add('card', 'bg-dark')
+            card.style = 'width: 22rem';
+            card.innerHTML = `
+            <img class="card-img-top p-4" src="${producto.img}" alt="Card image cap">
+            
+            <div class="card-body">
+                <h5 class="card-title">${producto.nombreProd}</h5>
+                <h3>$${producto.precio}</h3>
+                <p class="card-text">${producto.descripcion}</p>
+                <a class="btn btn-info pcard" data-id=${producto.id}>Añadir al carrito</a>
+            </div>
+            <div class="" id="prodAlert" data-id="${producto.id}"></div>
+            `
+            contenedorCard.append(card);
+        })
+    }
+    
     contenedorCard.classList.add('gap-3');
+    agregarArrayCarrito();
 }
 
 const agregarArrayCarrito = () => { // si hacen click en alguna card agregamos al ARRAY del carrito.
     const cardSelector = document.querySelectorAll('.pcard')
     cardSelector.forEach((el) => {
-        el.addEventListener('click', (e) => {
+        el.addEventListener('click', (e) => { // agregamos un evento al boton de agregar al carrito.
             let productoAgregar = listaProductos.find(el => el.id == e.target.getAttribute("data-id"))
             carrito.push(productoAgregar);
             cartCount.innerText = carrito.length; // contador para el carrito. 
@@ -69,6 +91,7 @@ const renderCarrito = () => { // funcion para actualizar el carrito en el dom.
                     <h5 class="">${pEncarro.nombreProd}</h5>
                     <h3>$${pEncarro.precio}</h3>
                     <p class="">${pEncarro.descripcion}</p>
+                    <p>${pEncarro.categoria}</p>
                 </div>
                 <div>
                 <a class="btn btn-info elim "data-id=${pEncarro.id}>Eliminar del carro</a>
@@ -107,11 +130,44 @@ JSON.parse(localStorage.getItem('carrito')) && JSON.parse(localStorage.getItem('
 
 
 
+const filterItems = () =>{ // agregamos filtro para renderizado por categorias... 
+    renderProductos();
+    filterI.forEach((el)=>{
+        el.addEventListener('click',(e)=>{
+            let filterID = Number(el.getAttribute('data-id'))
+            switch (filterID) {
+                case 0: 
+                    contenedorCard.innerHTML=""
+                    renderProductos(filterID)
+                    break;
+                case 1:
+                    contenedorCard.innerHTML=""
+                    renderProductos(filterID)
+                    break
+                case 2:
+                    contenedorCard.innerHTML=""
+                    renderProductos(filterID)
+                    break
+                case 3:
+                    contenedorCard.innerHTML=""
+                    renderProductos(filterID)
+                    break
+                case 4:
+                    contenedorCard.innerHTML=""
+                    renderProductos(filterID)
+                    break
+                default: renderProductos()
+                    break;
+            }
+        })
+    })
+}
+
+
 
 //Ejecuciones
+ filterItems(); // Funcion encargada de ejecutar todo el procedimiento 
 
-renderProductos();// Ejecutamos Render De productos.
-agregarArrayCarrito();//Ejecutamos Agregar a nuestro Array de carrito.
 
 
 
