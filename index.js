@@ -6,6 +6,38 @@ const cartContainer = document.querySelector('.cartContainer');
 const filterI = document.querySelectorAll('.filterI');
 
 //Funciones
+const filterItems = () =>{ // agregamos filtro para renderizado por categorias... 
+    renderProductos();
+    filterI.forEach((el)=>{
+        el.addEventListener('click',(e)=>{
+            let filterID = Number(el.getAttribute('data-id'))
+            switch (filterID) {
+                case 0: 
+                    contenedorCard.innerHTML=""
+                    renderProductos(filterID)
+                    break;
+                case 1:
+                    contenedorCard.innerHTML=""
+                    renderProductos(filterID)
+                    break
+                case 2:
+                    contenedorCard.innerHTML=""
+                    renderProductos(filterID)
+                    break
+                case 3:
+                    contenedorCard.innerHTML=""
+                    renderProductos(filterID)
+                    break
+                case 4:
+                    contenedorCard.innerHTML=""
+                    renderProductos(filterID)
+                    break
+                default: renderProductos()
+                    break;
+            }
+        })
+    })
+}
 
 const renderProductos = (filterID) => { // renderizamos productos
     if(filterID){
@@ -47,7 +79,7 @@ const renderProductos = (filterID) => { // renderizamos productos
     }
     
     contenedorCard.classList.add('gap-3');
-    agregarArrayCarrito();
+    agregarArrayCarrito(); // ejecutamos funcion cuando le den click a "Agregar a Carrito"
 }
 
 const agregarArrayCarrito = () => { // si hacen click en alguna card agregamos al ARRAY del carrito.
@@ -76,7 +108,7 @@ const alertAddProducto = (id) => {// al momento de hacer click en una card lanza
     })
 }
 
-const renderCarrito = () => { // funcion para actualizar el carrito en el dom. 
+const renderCarrito = () => { // funcion para actualizar modal del carrito en el dom. 
     cartContainer.innerHTML = "";
     
     carrito.forEach((pEncarro) => {
@@ -129,38 +161,7 @@ JSON.parse(localStorage.getItem('carrito')) && JSON.parse(localStorage.getItem('
 
 
 
-const filterItems = () =>{ // agregamos filtro para renderizado por categorias... 
-    renderProductos();
-    filterI.forEach((el)=>{
-        el.addEventListener('click',(e)=>{
-            let filterID = Number(el.getAttribute('data-id'))
-            switch (filterID) {
-                case 0: 
-                    contenedorCard.innerHTML=""
-                    renderProductos(filterID)
-                    break;
-                case 1:
-                    contenedorCard.innerHTML=""
-                    renderProductos(filterID)
-                    break
-                case 2:
-                    contenedorCard.innerHTML=""
-                    renderProductos(filterID)
-                    break
-                case 3:
-                    contenedorCard.innerHTML=""
-                    renderProductos(filterID)
-                    break
-                case 4:
-                    contenedorCard.innerHTML=""
-                    renderProductos(filterID)
-                    break
-                default: renderProductos()
-                    break;
-            }
-        })
-    })
-}
+
 
 
 
