@@ -91,7 +91,6 @@ const renderCarrito = () => { // funcion para actualizar el carrito en el dom.
                     <h5 class="">${pEncarro.nombreProd}</h5>
                     <h3>$${pEncarro.precio}</h3>
                     <p class="">${pEncarro.descripcion}</p>
-                    <p>${pEncarro.categoria}</p>
                 </div>
                 <div>
                 <a class="btn btn-info elim "data-id=${pEncarro.id}>Eliminar del carro</a>
