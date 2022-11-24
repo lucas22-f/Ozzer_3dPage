@@ -45,7 +45,7 @@ const renderProductos = (filterID) => { // renderizamos productos
        nuevoArr.forEach((producto) => {
         const card = document.createElement('div');
         card.classList.add('card', 'bg-dark')
-        card.style = 'width: 22rem';
+        card.style = 'width: 12rem';
         card.innerHTML = `
         <img class="card-img-top p-4" src="${producto.img}" alt="Card image cap">
         <div class="card-body">
@@ -62,7 +62,7 @@ const renderProductos = (filterID) => { // renderizamos productos
         listaProductos.forEach((producto) => {
             const card = document.createElement('div');
             card.classList.add('card', 'bg-dark')
-            card.style = 'width: 22rem';
+            card.style = 'width: 18rem';
             card.innerHTML = `
             <img class="card-img-top p-4" src="${producto.img}" alt="Card image cap">
             
@@ -116,8 +116,8 @@ const renderCarrito = () => { // funcion para actualizar modal del carrito en el
         const productoEnCarro = document.createElement('div');
         productoEnCarro.classList.add('productoCarro', 'p-3');
         productoEnCarro.innerHTML = `
-        <div class="row rounded">
-            <img class="col-sm-12 col-md-4" src="${pEncarro.img}" width="200" heigth="200" alt="Card image cap">
+        <div class="row rounded" style="margin:3%">
+            <img class="col-sm-12 col-md-4" src="${pEncarro.img}" style ="width:11rem" alt="Card image cap">
             <div class="p-3 col-12 col-xl-8">
                 <div>
                     <h5 class="">${pEncarro.nombreProd}</h5>
