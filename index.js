@@ -45,14 +45,17 @@ const renderProductos = (filterID) => { // renderizamos productos
        nuevoArr.forEach((producto) => {
         const card = document.createElement('div');
         card.classList.add('card', 'bg-dark')
-        card.style = 'width: 12rem';
+        card.style = 'width: 18rem';
         card.innerHTML = `
         <img class="card-img-top p-4" src="${producto.img}" alt="Card image cap">
         <div class="card-body">
             <h5 class="card-title">${producto.nombreProd}</h5>
             <h3>$${producto.precio}</h3>
             <p class="card-text">${producto.descripcion}</p>
+            <label>cantidad:</label>
+            <input class="d-flex mb-2" placeholder="1" type="number" min="1" max="3"> </input>
             <a class="btn btn-info pcard" data-id=${producto.id}>Añadir al carrito</a>
+            
         </div>
         <div class="" id="prodAlert" data-id="${producto.id}"></div>
         `
@@ -70,7 +73,10 @@ const renderProductos = (filterID) => { // renderizamos productos
                 <h5 class="card-title">${producto.nombreProd}</h5>
                 <h3>$${producto.precio}</h3>
                 <p class="card-text">${producto.descripcion}</p>
+                <label>cantidad:</label>
+                <input class="d-flex mb-2" placeholder="1" type="number" min="1" max="3"> </input>
                 <a class="btn btn-info pcard" data-id=${producto.id}>Añadir al carrito</a>
+               
             </div>
             <div class="" id="prodAlert" data-id="${producto.id}"></div>
             `
