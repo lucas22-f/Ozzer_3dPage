@@ -56,7 +56,7 @@ const payEndApp = () => { // se defina final de la app vaciando el carrito y dan
         <strong> Muchas Gracias por tu compra! </strong>
         </div>`
         contenedorPayCards.innerHTML = ""
-        localStorage.setItem("carrito", null);
+        localStorage.clear();
         carrito = [];
     })
 }

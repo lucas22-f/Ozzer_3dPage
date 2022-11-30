@@ -6,30 +6,30 @@ const cartContainer = document.querySelector('.cartContainer');
 const filterI = document.querySelectorAll('.filterI');
 
 //Funciones
-const filterItems = () =>{ // agregamos filtro para renderizado por categorias... 
+const filterItems = () => { // agregamos filtro para renderizado por categorias... 
     renderProductos();
-    filterI.forEach((el)=>{
-        el.addEventListener('click',(e)=>{
+    filterI.forEach((el) => {
+        el.addEventListener('click', (e) => {
             let filterID = Number(el.getAttribute('data-id'))
             switch (filterID) {
-                case 0: 
-                    contenedorCard.innerHTML=""
+                case 0:
+                    contenedorCard.innerHTML = ""
                     renderProductos(filterID)
                     break;
                 case 1:
-                    contenedorCard.innerHTML=""
+                    contenedorCard.innerHTML = ""
                     renderProductos(filterID)
                     break
                 case 2:
-                    contenedorCard.innerHTML=""
+                    contenedorCard.innerHTML = ""
                     renderProductos(filterID)
                     break
                 case 3:
-                    contenedorCard.innerHTML=""
+                    contenedorCard.innerHTML = ""
                     renderProductos(filterID)
                     break
                 case 4:
-                    contenedorCard.innerHTML=""
+                    contenedorCard.innerHTML = ""
                     renderProductos(filterID)
                     break
                 default: renderProductos()
@@ -39,29 +39,31 @@ const filterItems = () =>{ // agregamos filtro para renderizado por categorias..
     })
 }
 
+
+
 const renderProductos = (filterID) => { // renderizamos productos
-    if(filterID){
-       let nuevoArr  = listaProductos.filter((el)=> el.categoria == filterID)
-       nuevoArr.forEach((producto) => {
-        const card = document.createElement('div');
-        card.classList.add('card', 'bg-dark')
-        card.style = 'width: 18rem';
-        card.innerHTML = `
+    if (filterID) {
+        let nuevoArr = listaProductos.filter((el) => el.categoria == filterID)
+        nuevoArr.forEach((producto) => {
+            const card = document.createElement('div');
+            card.classList.add('card', 'bg-dark')
+            card.style = 'width: 18rem';
+            card.innerHTML = `
         <img class="card-img-top p-4" src="${producto.img}" alt="Card image cap">
         <div class="card-body">
             <h5 class="card-title">${producto.nombreProd}</h5>
             <h3>$${producto.precio}</h3>
             <p class="card-text">${producto.descripcion}</p>
-            <label>cantidad:</label>
-            <input class="d-flex mb-2" placeholder="1" type="number" min="1" max="3"> </input>
+            
+          
             <a class="btn btn-info pcard" data-id=${producto.id}>Añadir al carrito</a>
             
         </div>
         <div class="" id="prodAlert" data-id="${producto.id}"></div>
         `
-        contenedorCard.append(card);
-    })
-    }else{
+            contenedorCard.append(card);
+        })
+    } else {
         listaProductos.forEach((producto) => {
             const card = document.createElement('div');
             card.classList.add('card', 'bg-dark')
@@ -73,8 +75,8 @@ const renderProductos = (filterID) => { // renderizamos productos
                 <h5 class="card-title">${producto.nombreProd}</h5>
                 <h3>$${producto.precio}</h3>
                 <p class="card-text">${producto.descripcion}</p>
-                <label>cantidad:</label>
-                <input class="d-flex mb-2" placeholder="1" type="number" min="1" max="3"> </input>
+                
+             
                 <a class="btn btn-info pcard" data-id=${producto.id}>Añadir al carrito</a>
                
             </div>
@@ -83,7 +85,7 @@ const renderProductos = (filterID) => { // renderizamos productos
             contenedorCard.append(card);
         })
     }
-    
+
     contenedorCard.classList.add('gap-3');
     agregarArrayCarrito(); // ejecutamos funcion cuando le den click a "Agregar a Carrito"
 }
@@ -93,12 +95,26 @@ const agregarArrayCarrito = () => { // si hacen click en alguna card agregamos a
     cardSelector.forEach((el) => {
         el.addEventListener('click', (e) => { // agregamos un evento al boton de agregar al carrito.
             let productoAgregar = listaProductos.find(el => el.id == e.target.getAttribute("data-id"))
-            carrito.push(productoAgregar);
-            cartCount.innerText = carrito.length; // contador para el carrito. 
+
+
+            if (!carrito.some((el) => el.id === productoAgregar.id)) {
+                carrito.push({
+                    ...productoAgregar,
+                    cantidad: 1
+                });
+            } else {
+                const productoSelect = carrito.find((el) => el.id === productoAgregar.id)
+                productoSelect.cantidad++;
+            }
+
+            
             alertAddProducto(e.target.getAttribute("data-id"));
             renderCarrito()
+
+
         })
     })
+
 }
 
 const alertAddProducto = (id) => {// al momento de hacer click en una card lanzamos una alerta en la misma
@@ -107,41 +123,90 @@ const alertAddProducto = (id) => {// al momento de hacer click en una card lanza
         if (el.getAttribute('data-id') == id) {
             el.innerHTML = `
         <div class="alert alert-success m-3 alert-dismissible fade show" role="alert">
-        <strong> <i class="bi bi-check-lg"></i> Agregado al carrito</strong> Chequealo haciendo click en el mismo!.
+        <strong> <i class="bi bi-check-lg"></i> Agregado al carrito</strong> <br></br>Chequealo haciendo click en el mismo!.
+        <strong> <br></br>cantidad: ${(carrito.find((prod) => prod.id == id)).cantidad} </strong>
         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-        </div>`
+        </div>
+        `
         }
     })
 }
 
 const renderCarrito = () => { // funcion para actualizar modal del carrito en el dom. 
     cartContainer.innerHTML = "";
-    
+
     carrito.forEach((pEncarro) => {
 
         const productoEnCarro = document.createElement('div');
-        productoEnCarro.classList.add('productoCarro', 'p-3');
+        productoEnCarro.classList.add('productoCarro');
         productoEnCarro.innerHTML = `
         <div class="row rounded" style="margin:3%">
             <img class="col-sm-12 col-md-4" src="${pEncarro.img}" style ="width:11rem" alt="Card image cap">
-            <div class="p-3 col-12 col-xl-8">
+            <div class="p-3 col-12 col-xl-8 d-flex justify-content-between">
                 <div>
                     <h5 class="">${pEncarro.nombreProd}</h5>
                     <h3>$${pEncarro.precio}</h3>
                     <p class="">${pEncarro.descripcion}</p>
+                    
+
+                    <div>
+                    <a class="btn btn-info elim" data-id=${pEncarro.id}>Eliminar del carro</a>
+                    </div>
+                    
                 </div>
                 <div>
-                <a class="btn btn-info elim "data-id=${pEncarro.id}>Eliminar del carro</a>
+                    <button class="btn btn-light bg-dark text-light addCant" data-id=${pEncarro.id}>+</button>
+                    <button class="btn btn-light bg-dark text-light disCant" data-id=${pEncarro.id}>-</button>
+                    
+                    <h5 class="mt-3"> Cantidad: ${pEncarro.cantidad} </h5>
                 </div>
+                
             </div>
         </div>
         `
+
         cartContainer.append(productoEnCarro)
+
 
     })
 
     eliminarProductoDelCarro();// llamada a la funcion de eliminar en caso de que se ejecute
-    localStorage.setItem('carrito',JSON.stringify(carrito));//seteamos el carrito en el localStorage
+
+
+    let addCant = document.querySelectorAll('.addCant'); // agregamos funciones para modificar cantidad en carro. 
+    let disCant = document.querySelectorAll('.disCant');
+
+    addCant.forEach((el) => {
+        el.addEventListener('click', (e) => {
+            if ((carrito.find(p => p.id == el.getAttribute('data-id'))).cantidad > 0) {
+                (carrito.find(p => p.id == el.getAttribute('data-id'))).cantidad++
+                console.log(carrito)
+                renderCarrito()
+            }
+        })
+    })
+    disCant.forEach((el) => {
+        el.addEventListener('click', (e) => {
+            if ((carrito.find(p => p.id == el.getAttribute('data-id'))).cantidad > 1) {
+                (carrito.find(p => p.id == el.getAttribute('data-id'))).cantidad--
+                console.log(carrito)
+                renderCarrito()
+
+            }
+
+        })
+    })
+
+    localStorage.setItem('carrito', JSON.stringify(carrito));//seteamos el carrito en el localStorage
+
+    let arrCantidad = carrito.map((el) => {
+        return el.cantidad
+    })
+
+
+
+    let sumaCantCarrito = arrCantidad.reduce((acc, el) => acc + el, 0)
+    cartCount.innerText = sumaCantCarrito
 }
 
 
@@ -159,9 +224,10 @@ const eliminarProductoDelCarro = () => { // funcion para eliminar productos del 
     })
 }
 
-JSON.parse(localStorage.getItem('carrito')) && JSON.parse(localStorage.getItem('carrito')).forEach((el)=>{  // Actualizamos el carrito con los datos de Local Storage para no perder la informacion.
+
+JSON.parse(localStorage.getItem('carrito')) && JSON.parse(localStorage.getItem('carrito')).forEach((el) => {  // Actualizamos el carrito con los datos de Local Storage para no perder la informacion.
     carrito.push(el)
-    cartCount.innerText = carrito.length;
+   
     renderCarrito()
 })
 
@@ -172,7 +238,7 @@ JSON.parse(localStorage.getItem('carrito')) && JSON.parse(localStorage.getItem('
 
 
 //Ejecuciones
- filterItems(); // Funcion encargada de ejecutar todo el procedimiento 
+filterItems(); // Funcion encargada de ejecutar todo el procedimiento 
 
 
 
