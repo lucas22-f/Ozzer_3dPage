@@ -1,0 +1,82 @@
+[
+    {
+        "id": 1,
+        "nombreProd": "Goku impreso 3d",
+        "img": "https://i.pinimg.com/originals/c5/a4/1e/c5a41e95225c7bb4b3e5df0b8934b097.jpg",
+        "precio": 5000,
+        "descripcion": "goku pequeño impreso 3d",
+        "categoria": 1
+    },
+    {
+        "id": 2,
+        "nombreProd": "Mario impreso 3d",
+        "img": "https://cdn.myminifactory.com/assets/object-assets/585cf081753a0/images/720X720-mario.jpg",
+        "precio": 5000,
+        "descripcion": "mario pequeño impreso 3d",
+        "categoria": 1
+    },
+    {
+        "id": 3,
+        "nombreProd": "Mate Harry Potter impreso 3d",
+        "img": "https://i.pinimg.com/736x/8d/17/0b/8d170b54c1d76e7f77068957a4039def.jpg",
+        "precio": 4500,
+        "descripcion": "harry Potter pequeño impreso 3d",
+        "categoria": 2
+    },
+    {
+        "id": 4,
+        "nombreProd": "Maceta Impresa 3d",
+        "img": "https://bitfab.io/wp-content/uploads/2020/12/il_1588xN.2321570558_duun-768x1024.jpg",
+        "precio": 4300,
+        "descripcion": "maceta pequeña impreso 3d",
+        "categoria": 3
+    },
+    {
+        "id": 5,
+        "nombreProd": "Pikachu impreso 3d",
+        "img": "https://cdn.myminifactory.com/assets/object-assets/5ea84312a7211/images/720X720-img-20210531-181852.jpg",
+        "precio": 5000,
+        "descripcion": "pikachu pequeño impreso 3d",
+        "categoria": 1
+    },
+    {
+        "id": 6,
+        "nombreProd": "Bulbasaur impreso 3d",
+        "img": "https://www.3dshop.com.ar/wp-content/uploads/2021/01/bulbasaur-impresion-3d-shop.jpg",
+        "precio": 5000,
+        "descripcion": "bulbasaur pequeño impreso 3d",
+        "categoria": 1
+    },
+    {
+        "id": 7,
+        "nombreProd": "Charmander impreso 3d",
+        "img": "https://images.cults3d.com/AvfKW2oCbRg78h7AE57qNSDgGTs=/516x516/https://files.cults3d.com/uploaders/13568106/photo-file/3cf23dda-90fb-4a8b-8321-62fbcb144635/salamoule.png",
+        "precio": 6000,
+        "descripcion": "charmander pequeño impreso 3d",
+        "categoria": 1
+    },
+    {
+        "id": 8,
+        "nombreProd": "Iron Man impreso 3d",
+        "img": "https://cdn.myminifactory.com/assets/object-assets/5b50feb9bca1e/images/720X720-de97b6d0-b9aa-460f-9e1b-1748521fbec0.jpg",
+        "precio": 8000,
+        "descripcion": "iron man pequeño impreso 3d",
+        "categoria": 1
+    },
+    {
+        "id": 9,
+        "nombreProd": "Sonic impreso 3d",
+        "img": "https://images.cults3d.com/DTLVC9ElIRKUT6AwRnOrDYfrUSQ=/516x516/https://files.cults3d.com/uploaders/5909433/illustration-file/71a6b017-bba8-4687-bb6b-16f12e91a335/Capture%20d%E2%80%99e%CC%81cran%202017-03-16%20a%CC%80%2016.54.14.png",
+        "precio": 5000,
+        "descripcion": "sonic pequeño impreso 3d",
+        "categoria": 1
+    },
+    {
+        "id": 10,
+        "nombreProd": "Llaveros personalizados impreso 3d",
+        "img": "https://http2.mlstatic.com/D_NQ_NP_660022-MLA44966201066_022021-O.jpg",
+        "precio": 1500,
+        "descripcion": "llavero pequeño impreso 3d",
+        "categoria": 4
+    }
+]

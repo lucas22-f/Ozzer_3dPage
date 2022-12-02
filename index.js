@@ -1,15 +1,34 @@
 
 //Query de elementos
-const contenedorCard = document.querySelector('#contenedorCards');
-const cartCount = document.querySelector('.cartCount');
-const cartContainer = document.querySelector('.cartContainer');
-const filterI = document.querySelectorAll('.filterI');
+const contenedorCard = document.querySelector('#contenedorCards'); // Contenedor de Productos
+const cartCount = document.querySelector('.cartCount'); // Contador del carrito.
+const cartContainer = document.querySelector('.cartContainer'); // Contenedor del MODAL carrito 
+const filterI = document.querySelectorAll('.filterI'); // Filtro para busquedas
+let carrito = []; // Nuestro MODAL DEL CARRITO 
+let listaProductos// Nuestro Array Literal de productos. 
+
+
+    fetch('./data.json') // llamamos a la funcion fetch para traer los datos. 
+
+        .then((res) => res.json())
+
+        .then((data) => {
+
+            listaProductos = data;
+            filterItems();
+        
+     });
+
+
+
 
 //Funciones
 const filterItems = () => { // agregamos filtro para renderizado por categorias... 
-    renderProductos();
+
+    renderProductos(); // renderizamos primera vez por defecto todos los productos
+
     filterI.forEach((el) => {
-        el.addEventListener('click', (e) => {
+        el.addEventListener('click', (e) => { // en caso de que hagan click en algun filtro se activa por el swtich! 
             let filterID = Number(el.getAttribute('data-id'))
             switch (filterID) {
                 case 0:
@@ -42,7 +61,10 @@ const filterItems = () => { // agregamos filtro para renderizado por categorias.
 
 
 const renderProductos = (filterID) => { // renderizamos productos
-    if (filterID) {
+
+
+
+    if (filterID) {//si hay filtro 
         let nuevoArr = listaProductos.filter((el) => el.categoria == filterID)
         nuevoArr.forEach((producto) => {
             const card = document.createElement('div');
@@ -63,7 +85,7 @@ const renderProductos = (filterID) => { // renderizamos productos
         `
             contenedorCard.append(card);
         })
-    } else {
+    } else {//si no  hay filtro 
         listaProductos.forEach((producto) => {
             const card = document.createElement('div');
             card.classList.add('card', 'bg-dark')
@@ -87,17 +109,21 @@ const renderProductos = (filterID) => { // renderizamos productos
     }
 
     contenedorCard.classList.add('gap-3');
-    agregarArrayCarrito(); // ejecutamos funcion cuando le den click a "Agregar a Carrito"
+    agregarArrayCarrito(); // llamamos a la funcion cuando hacen click en alguna tarjeta de producto " añadir al carrito "
 }
 
 const agregarArrayCarrito = () => { // si hacen click en alguna card agregamos al ARRAY del carrito.
+
+
+
     const cardSelector = document.querySelectorAll('.pcard')
+    !carrito.length && cartContainer.append('Carrito vacio... Agrega productos!')
     cardSelector.forEach((el) => {
         el.addEventListener('click', (e) => { // agregamos un evento al boton de agregar al carrito.
             let productoAgregar = listaProductos.find(el => el.id == e.target.getAttribute("data-id"))
 
 
-            if (!carrito.some((el) => el.id === productoAgregar.id)) {
+            if (!carrito.some((el) => el.id === productoAgregar.id)) { //verificamos si hacen click en un mismo producto para aumentar su cantidad
                 carrito.push({
                     ...productoAgregar,
                     cantidad: 1
@@ -107,7 +133,7 @@ const agregarArrayCarrito = () => { // si hacen click en alguna card agregamos a
                 productoSelect.cantidad++;
             }
 
-            
+
             alertAddProducto(e.target.getAttribute("data-id"));
             renderCarrito()
 
@@ -133,7 +159,9 @@ const alertAddProducto = (id) => {// al momento de hacer click en una card lanza
 }
 
 const renderCarrito = () => { // funcion para actualizar modal del carrito en el dom. 
+
     cartContainer.innerHTML = "";
+    let cant = 0;
 
     carrito.forEach((pEncarro) => {
 
@@ -164,11 +192,12 @@ const renderCarrito = () => { // funcion para actualizar modal del carrito en el
             </div>
         </div>
         `
-
+        cant += pEncarro.cantidad;
         cartContainer.append(productoEnCarro)
 
 
     })
+
 
     eliminarProductoDelCarro();// llamada a la funcion de eliminar en caso de que se ejecute
 
@@ -180,7 +209,6 @@ const renderCarrito = () => { // funcion para actualizar modal del carrito en el
         el.addEventListener('click', (e) => {
             if ((carrito.find(p => p.id == el.getAttribute('data-id'))).cantidad > 0) {
                 (carrito.find(p => p.id == el.getAttribute('data-id'))).cantidad++
-                console.log(carrito)
                 renderCarrito()
             }
         })
@@ -189,7 +217,6 @@ const renderCarrito = () => { // funcion para actualizar modal del carrito en el
         el.addEventListener('click', (e) => {
             if ((carrito.find(p => p.id == el.getAttribute('data-id'))).cantidad > 1) {
                 (carrito.find(p => p.id == el.getAttribute('data-id'))).cantidad--
-                console.log(carrito)
                 renderCarrito()
 
             }
@@ -212,6 +239,7 @@ const renderCarrito = () => { // funcion para actualizar modal del carrito en el
 
 
 const eliminarProductoDelCarro = () => { // funcion para eliminar productos del carrito 1 x 1 
+    !carrito.length && cartContainer.append('Carrito vacio')
     const cardCartContainer = document.querySelectorAll('.elim')
     cardCartContainer.forEach((el) => {
         el.addEventListener('click', (e) => {
@@ -220,14 +248,18 @@ const eliminarProductoDelCarro = () => { // funcion para eliminar productos del 
             carrito.splice(indice, 1);
             cartCount.innerText = carrito.length;
             renderCarrito()
+            
         })
+       
     })
+    renderProductos()
+
 }
 
 
 JSON.parse(localStorage.getItem('carrito')) && JSON.parse(localStorage.getItem('carrito')).forEach((el) => {  // Actualizamos el carrito con los datos de Local Storage para no perder la informacion.
     carrito.push(el)
-   
+
     renderCarrito()
 })
 
@@ -238,7 +270,7 @@ JSON.parse(localStorage.getItem('carrito')) && JSON.parse(localStorage.getItem('
 
 
 //Ejecuciones
-filterItems(); // Funcion encargada de ejecutar todo el procedimiento 
+ // Funcion encargada de ejecutar todo el procedimiento 
 
 
 
