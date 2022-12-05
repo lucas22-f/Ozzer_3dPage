@@ -79,8 +79,8 @@ const payEndApp =  () => { // se defina final de la app vaciando el carrito y da
                 message: 'lista de productos comprados....'
               }
 
-              emailjs.send('service_lficazu','template_v2jsmng',tempParams)
-              .then((res)=> console.log(res)); 
+             await emailjs.send('service_lficazu','template_v2jsmng',tempParams)
+              
               
               pay.innerHTML = " "
               pay.innerHTML= `
