@@ -6,7 +6,14 @@ let cant = 0;
 let carrito = JSON.parse(localStorage.getItem('carrito')) || [];
 
 const renderPagoCarrito = () => { // renderizamos el carrito en el dom.
-    !carrito.length && contenedorPayCards.append('Carrito vacio... agrega mas productos!')
+
+    let msj = document.createElement('h4')
+    msj.innerText = `💔 Carrito vacio... agrega productos! 💔`
+    msj.classList.add('text-center')
+
+
+    !carrito.length && contenedorPayCards.append(msj);
+
     carrito.forEach((el) => {
         const card = document.createElement('div');
         card.innerHTML = `
@@ -27,41 +34,66 @@ const renderPagoCarrito = () => { // renderizamos el carrito en el dom.
             </div>         
         </div>
         `
+
+
         cant += el.cantidad
         total = total + (el.precio * el.cantidad) // calculamos el total de los precios
         contenedorPayCards.append(card)
-
     })
+
+
+
     if (carrito.length) {
         const btnPagar = document.createElement('div'); // agregamos boton de pago. 
-        btnPagar.classList.add('text-end')
         btnPagar.innerHTML = `
-    <div class="d-flex align-items-center justify-content-end">
+    <div class="d-flex align-items-center justify-content-center pay">
         <h3 class="m-3">Total productos:  ${cant}</h3>
           <h3 class="m-3">Total: $${total}</h3>
           <div class="btn btn-info alertOk" >Pagar</div>
          
     </div>
-    <div class="text-center" id="insertAlert"></div> `
+   `
 
         contenedorPayButtons.append(btnPagar);
     }
 }
 
-const payEndApp = () => { // se defina final de la app vaciando el carrito y dando mensaje de pago.
+const payEndApp =  () => { // se defina final de la app vaciando el carrito y dando mensaje de pago.
 
     if (carrito.length) {
         let pagoOk = document.querySelector('.alertOk')
-        pagoOk.addEventListener('click', (e) => {
-            let insertAlert = document.querySelector('#insertAlert')
-            insertAlert.innerHTML = `<div class="alert alert-success" role="alert">
-        <strong> Muchas Gracias por tu compra! </strong>
-        </div>`
+        let pay = document.querySelector('.pay')
+        pagoOk.addEventListener('click', async () => {
+           
+           /*  const { value: email } = await Swal.fire({
+                title: 'Ingresa Tu Email',
+                input: 'email',
+                inputLabel: 'Direccion de email',
+                inputPlaceholder: 'Email',
+                backdrop:false
+              }) */
+              Email.send({
+                Host : "smtp.elasticemail.com",
+                Username : "<lucas.200061@gmail.com>",
+                Password : "<302A72F3BECB2D9BD62D974BBA6D5C92CE98>",
+                To : 'lucas.200061@gmail.com',
+                From : "sender@example.com",
+                Subject : "Test email",
+                Body : "<html><h2>Header</h2><strong>Bold text</strong><br></br><em>Italic</em></html>"
+            }).then(
+              message => alert(message)
+            );
+              
+              pay.innerHTML = " "
+              pay.innerHTML= `<a href="../index.html"class="btn btn-info text-center"> Regresar </a>`
+           
+            
             contenedorPayCards.innerHTML = ""
             localStorage.clear();
             carrito = [];
-
+        
         })
+       
     }
 }
 
