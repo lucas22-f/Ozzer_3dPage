@@ -46,12 +46,6 @@ const renderPagoCarrito = () => { // renderizamos el carrito en el dom.
 
         contenedorPayButtons.append(btnPagar);
     }
-
-
-    /*    */
-
-
-
 }
 
 const payEndApp = () => { // se defina final de la app vaciando el carrito y dando mensaje de pago.
@@ -69,7 +63,6 @@ const payEndApp = () => { // se defina final de la app vaciando el carrito y dan
 
         })
     }
-
 }
 
 renderPagoCarrito();
