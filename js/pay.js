@@ -46,10 +46,10 @@ const renderPagoCarrito = () => { // renderizamos el carrito en el dom.
     if (carrito.length) {
         const btnPagar = document.createElement('div'); // agregamos boton de pago. 
         btnPagar.innerHTML = `
-    <div class="d-flex align-items-center justify-content-center pay">
-        <h3 class="m-3">Total productos:  ${cant}</h3>
-          <h3 class="m-3">Total: $${total}</h3>
-          <div class="btn btn-info alertOk" >Pagar</div>
+    <div class="d-flex align-items-center justify-content-center pay flex-column">
+        <h5 class="m-3">Total productos:  ${cant}</h5>
+          <h5 class="m-3">Total: $${total}</h5>
+          <div class="btn btn-info alertOk m-3" >Pagar</div>
          
     </div>
    `
@@ -65,28 +65,29 @@ const payEndApp =  () => { // se defina final de la app vaciando el carrito y da
         let pay = document.querySelector('.pay')
         pagoOk.addEventListener('click', async () => {
            
-           /*  const { value: email } = await Swal.fire({
+             const { value: email } = await Swal.fire({
                 title: 'Ingresa Tu Email',
                 input: 'email',
                 inputLabel: 'Direccion de email',
                 inputPlaceholder: 'Email',
                 backdrop:false
-              }) */
-              Email.send({
-                Host : "smtp.elasticemail.com",
-                Username : "<lucas.200061@gmail.com>",
-                Password : "<302A72F3BECB2D9BD62D974BBA6D5C92CE98>",
-                To : 'lucas.200061@gmail.com',
-                From : "sender@example.com",
-                Subject : "Test email",
-                Body : "<html><h2>Header</h2><strong>Bold text</strong><br></br><em>Italic</em></html>"
-            }).then(
-              message => alert(message)
-            );
+              }) 
+              
+             let tempParams = {
+                from_name:'OZEER_3d@mail.com',
+                to_name : email,
+                message: 'lista de productos comprados....'
+              }
+
+              emailjs.send('service_lficazu','template_v2jsmng',tempParams)
+              .then((res)=> console.log(res)); 
               
               pay.innerHTML = " "
-              pay.innerHTML= `<a href="../index.html"class="btn btn-info text-center"> Regresar </a>`
-           
+              pay.innerHTML= `
+              <div><h3> Mail con datos para el pago Enviados!.. muchas gracias por tu compra 🧡</h3></div>
+              <img src='../assets/final.jpg' style="width:300px;border-radius:50%;box-shadow: #505050 0px 0px 5px;" class="m-3"></img>
+              <a href="../index.html"class="btn btn-info text-center m-5"> Regresar </a>`
+              
             
             contenedorPayCards.innerHTML = ""
             localStorage.clear();
