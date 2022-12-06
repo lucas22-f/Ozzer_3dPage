@@ -66,7 +66,7 @@ const payEndApp =  () => { // se defina final de la app vaciando el carrito y da
         pagoOk.addEventListener('click', async () => {
            
 
-            const myAlert = Swal.mixin({
+            const myAlert = Swal.mixin({ // creamos un mixin para editar los estilos del boton 
                 customClass: {
                   confirmButton: 'btn btn-info',
                 },
@@ -85,13 +85,13 @@ const payEndApp =  () => { // se defina final de la app vaciando el carrito y da
 
              }) 
               
-              let tempParams = {
+              let tempParams = { // creamos objeto a enviar con los datos del mail
                 from_name:'OZEER_3d@mail.com',
                 to_name : email,
                 message: 'lista de productos comprados....'
               }
 
-             await emailjs.send('service_lficazu','template_v2jsmng',tempParams) 
+             await emailjs.send('service_lficazu','template_v2jsmng',tempParams)  // utilizamos la funcion de EmailJs asincrona para hacer envio de un mail
               
               
               pay.innerHTML = " "

@@ -13,7 +13,7 @@ let listaProductos; // Nuestro Array Literal de productos.
 
 
 
-fetch("./data.json") // llamamos a la funcion fetch para traer los datos.
+fetch("./json/data.json") // llamamos a la funcion fetch para traer los datos.
     .then((res) => res.json())
 
     .then((data) => {
