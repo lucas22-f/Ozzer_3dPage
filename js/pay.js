@@ -65,21 +65,33 @@ const payEndApp =  () => { // se defina final de la app vaciando el carrito y da
         let pay = document.querySelector('.pay')
         pagoOk.addEventListener('click', async () => {
            
-             const { value: email } = await Swal.fire({
+
+            const myAlert = Swal.mixin({
+                customClass: {
+                  confirmButton: 'btn btn-info',
+                },
+                buttonsStyling: false
+              })
+
+             const { value: email } = await myAlert.fire({
                 title: 'Ingresa Tu Email',
                 input: 'email',
                 inputLabel: 'Direccion de email',
                 inputPlaceholder: 'Email',
-                backdrop:false
-              }) 
+                color: "#0dcaf0",
+                background: "#30373d",
+                backdrop:false,
+                validationMessage:"Email invalido"
+
+             }) 
               
-             let tempParams = {
+              let tempParams = {
                 from_name:'OZEER_3d@mail.com',
                 to_name : email,
                 message: 'lista de productos comprados....'
               }
 
-             await emailjs.send('service_lficazu','template_v2jsmng',tempParams)
+             await emailjs.send('service_lficazu','template_v2jsmng',tempParams) 
               
               
               pay.innerHTML = " "
