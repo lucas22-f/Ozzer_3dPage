@@ -5,6 +5,8 @@
 ### Animaciones 
 
 Se utilizo sweet alert 2 para uso de animaciones
+
+
 ![image](https://user-images.githubusercontent.com/71677198/205792706-39614301-4002-4717-8eba-2fc453e5622c.png)
 
 
@@ -17,6 +19,6 @@ Se utilizo EmailJS para interactuar con el envio de mails [ FUNCIONAL ]. haciend
 
 ![image](https://user-images.githubusercontent.com/71677198/205792603-f842c2fb-8036-4de2-a784-ab51ecf2ea1d.png)
 
-##Proba la web! 
+## Proba la web! 
 
 [Pagina Web De prueba ](https://lucas22-f.github.io/Ozzer_3dPage/)
