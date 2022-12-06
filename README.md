@@ -1,6 +1,6 @@
 # Ozzer_3d
 
-## Aplicacion Resuelta con Vanilla JS utilicé librerias varias para.... 
+## Aplicacion Creada con Vanilla JS utilicé librerias varias para.... 
 
 ### Animaciones 
 
