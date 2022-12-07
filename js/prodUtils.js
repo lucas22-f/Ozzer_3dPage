@@ -137,6 +137,7 @@ function renderProductosBySearch(busqueda) { // render busqueda
                       `;
                 contenedorCard.append(card);
             });
+            agregarArrayCarrito();
         } else {
             contenedorCard.innerHTML = `<p> No encontramos resultados... 😫</p>`
         }
