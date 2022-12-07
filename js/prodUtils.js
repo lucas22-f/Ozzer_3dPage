@@ -108,6 +108,8 @@ function searchProducts() { // funcion busqueda de productos
 
     search.addEventListener('click', () => {
         renderProductosBySearch(busqueda); //llamamos al render de productos por busqueda
+        cartContainer.innerText = ""
+        !carrito.length && cartContainer.append("Carrito vacio... Agrega productos!");
     })
 
 }
