@@ -73,7 +73,9 @@ const payEndApp =  () => { // se defina final de la app vaciando el carrito y da
                 buttonsStyling: false
               })
 
-             const { value: email } = await myAlert.fire({
+              
+
+            /*  const { value: email } = await myAlert.fire({
                 title: 'Ingresa Tu Email',
                 input: 'email',
                 inputLabel: 'Direccion de email',
@@ -83,7 +85,7 @@ const payEndApp =  () => { // se defina final de la app vaciando el carrito y da
                 backdrop:false,
                 validationMessage:"Email invalido"
 
-             }) 
+             })  */
               
               let tempParams = { // creamos objeto a enviar con los datos del mail
                 from_name:'OZEER_3d@mail.com',
