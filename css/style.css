@@ -149,12 +149,12 @@ body {  overflow-x: hidden; /* Hide horizontal scrollbar */ }
   justify-content: center;
 }
 .miFooter .socialsf a {
-  margin: 0 20% 0 20%;
+  margin: 0 10% 0 10%;
   transition: all 1s;
 }
 
 .s-fb {
-  font-size: 2rem;
+  font-size: 1.4rem;
   color: #7e7e7e;
   transition: all 0.5s;
 }
@@ -164,7 +164,7 @@ body {  overflow-x: hidden; /* Hide horizontal scrollbar */ }
 }
 
 .s-ig {
-  font-size: 2rem;
+  font-size: 1.4rem;
   color: #7e7e7e;
   transition: all 0.5s;
 }
@@ -174,10 +174,27 @@ body {  overflow-x: hidden; /* Hide horizontal scrollbar */ }
 }
 
 .s-wpp {
-  font-size: 2rem;
+  font-size: 1.4rem;
   color: #7e7e7e;
   transition: all 0.5s;
 }
 .s-wpp:hover {
   color: #1da850;
 }
+
+.mobile-off{
+  display: none;
+}
+.mobile-on{
+  display: block;
+}
+
+@media (max-width:600px){
+  .mobile-off{
+    display: block;
+  }
+  .mobile-on{
+    display: none;
+  }
+}
+
