@@ -29,6 +29,7 @@ const renderCarrito = () => {
             </div>
         </div>
         `;
+        
         cant += pEncarro.cantidad;
         cartContainer.append(productoEnCarro);
     });
@@ -67,7 +68,8 @@ function cantController(){
 
     addCant.forEach((el) => {
         el.addEventListener("click", (e) => {
-            if (carrito.find((p) => p.id == el.getAttribute("data-id")).cantidad > 0) {
+            const cant = carrito.find((p) => p.id == el.getAttribute("data-id")).cantidad
+            if ( cant > 0 && cant <10 ) {
 
                 carrito.find((p) => p.id == el.getAttribute("data-id")).cantidad++;
                 renderCarrito();
@@ -77,7 +79,8 @@ function cantController(){
     });
     disCant.forEach((el) => {
         el.addEventListener("click", (e) => {
-            if (carrito.find((p) => p.id == el.getAttribute("data-id")).cantidad > 1) {
+            const cant = carrito.find((p) => p.id == el.getAttribute("data-id")).cantidad
+            if ( cant > 1) {
 
                 carrito.find((p) => p.id == el.getAttribute("data-id")).cantidad--;
                 renderCarrito();
