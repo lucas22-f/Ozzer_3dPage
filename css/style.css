@@ -198,3 +198,7 @@ body {  overflow-x: hidden; /* Hide horizontal scrollbar */ }
   }
 }
 
+.ondisplay{
+  display: none;
+}
+

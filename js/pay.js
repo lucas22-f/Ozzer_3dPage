@@ -1,6 +1,9 @@
 
 const contenedorPayCards = document.querySelector('#contenedorPayCards') // obtenemos el contenedor del Pago de productos
 const contenedorPayButtons = document.querySelector('#contenedorPayButtons');//obtenemos el contenedor de la botonera.
+
+
+
 let total = 0; // definimos variable para calcular el total
 let cant = 0;
 let carrito = JSON.parse(localStorage.getItem('carrito')) || [];
@@ -10,9 +13,10 @@ const renderPagoCarrito = () => { // renderizamos el carrito en el dom.
     let msj = document.createElement('h4')
     msj.innerText = `💔 Carrito vacio... agrega productos! 💔`
     msj.classList.add('text-center')
-
-
-    !carrito.length && contenedorPayCards.append(msj);
+    const dataPedido = document.querySelector("#dataPedido");
+  
+    !carrito.length && dataPedido.classList.add("ondisplay")
+    !carrito.length && contenedorPayCards.append(msj)
 
     carrito.forEach((el) => {
         const card = document.createElement('div');
