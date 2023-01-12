@@ -1,7 +1,8 @@
 
 const contenedorPayCards = document.querySelector('#contenedorPayCards') // obtenemos el contenedor del Pago de productos
 const contenedorPayButtons = document.querySelector('#contenedorPayButtons');//obtenemos el contenedor de la botonera.
-
+const contDatap = document.querySelector(".datap");
+const dataSbt = document.querySelector(".datasbt")
 
 
 let total = 0; // definimos variable para calcular el total
@@ -38,10 +39,14 @@ const renderPagoCarrito = () => { // renderizamos el carrito en el dom.
             </div>         
         </div>
         `
-
+        const datapText = document.createElement("p");
+        datapText.innerHTML = `<p>${el.nombreProd}</p>`
+        contDatap.append(datapText);
+        console.log(contDatap.innerHTML)
 
         cant += el.cantidad
         total = total + (el.precio * el.cantidad) // calculamos el total de los precios
+       
         contenedorPayCards.append(card)
     })
 
