@@ -72,26 +72,47 @@ const agregarArrayCarrito = () => {// si hacen click en alguna card agregamos al
                 const productoSelect = carrito.find(
                     (el) => el.id === productoAgregar.id
                 );
-                productoSelect.cantidad++;
+        
+                if(productoSelect.cantidad>=1&&productoSelect.cantidad<10){
+                    productoSelect.cantidad++;
+                }
+                
             }
+            const productoSelect = carrito.find(
+                (el) => el.id === productoAgregar.id
+            );
 
-            alertAddProducto();
+            alertAddProducto(productoSelect.cantidad);
             renderCarrito();
         });
     });
 };
 
-const alertAddProducto = () => {
-    Swal.fire({
-        position: "top-end",
-        text: "Agregado Correctamente",
-        toast: true,
-        icon: "success",
-        showConfirmButton: false,
-        color: "#0dcaf0",
-        background: "#30373d",
-        timer: 1000,
-    });
+const alertAddProducto = (cant) => {
+    if(cant<10){
+        Swal.fire({
+            position: "top-end",
+            text: "Agregado Correctamente",
+            toast: true,
+            icon: "success",
+            showConfirmButton: false,
+            color: "#0dcaf0",
+            background: "#30373d",
+            timer: 1000,
+        });
+    }else{
+        Swal.fire({
+            position: "top-end",
+            text: "Max Alcanzado",
+            toast: true,
+            icon: "error",
+            showConfirmButton: false,
+            color: "#0dcaf0",
+            background: "#30373d",
+            timer: 1000,
+        });
+    }
+    
 };
 
 

@@ -3,7 +3,7 @@ const contenedorPayCards = document.querySelector('#contenedorPayCards') // obte
 const contenedorPayButtons = document.querySelector('#contenedorPayButtons');//obtenemos el contenedor de la botonera.
 const contDatap = document.querySelector(".datap");
 const dataSbt = document.querySelector(".datasbt")
-
+const dataT = document.querySelector(".dataT")
 
 let total = 0; // definimos variable para calcular el total
 let cant = 0;
@@ -22,7 +22,7 @@ const renderPagoCarrito = () => { // renderizamos el carrito en el dom.
     carrito.forEach((el) => {
         const card = document.createElement('div');
         card.innerHTML = `
-        <div class="row rounded">
+        <div class="row rounded justify-content-between">
             <img class="img img-fluid col-sm-12 col-md-3 p-3" src="${el.img}" width=200 heigth=200 alt="Card image cap">
             <div class="col-md-3">
                 <div>
@@ -40,13 +40,21 @@ const renderPagoCarrito = () => { // renderizamos el carrito en el dom.
         </div>
         `
         const datapText = document.createElement("p");
-        datapText.innerHTML = `<p>${el.nombreProd}</p>`
+        datapText.innerHTML = `<p>x${el.cantidad} ${el.nombreProd}</p>`
         contDatap.append(datapText);
         console.log(contDatap.innerHTML)
 
+        const dataSbtText = document.createElement("p")
+        dataSbtText.innerHTML = `<p>$ ${el.precio*el.cantidad}</p>`
+        dataSbt.append(dataSbtText);
+
         cant += el.cantidad
         total = total + (el.precio * el.cantidad) // calculamos el total de los precios
-       
+        
+        
+        dataT.innerHTML = `<p>$ ${total}</p>`
+        
+
         contenedorPayCards.append(card)
     })
 
