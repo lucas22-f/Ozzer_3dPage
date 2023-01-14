@@ -42,7 +42,7 @@ const renderPagoCarrito = () => { // renderizamos el carrito en el dom.
         const datapText = document.createElement("p");
         datapText.innerHTML = `<p>x${el.cantidad} ${el.nombreProd}</p>`
         contDatap.append(datapText);
-        console.log(contDatap.innerHTML)
+
 
         const dataSbtText = document.createElement("p")
         dataSbtText.innerHTML = `<p>$ ${el.precio*el.cantidad}</p>`
@@ -129,6 +129,94 @@ const payEndApp =  () => { // se defina final de la app vaciando el carrito y da
     }
 }
 
+
+const getDataForm = () =>{
+    console.log("tamos on")
+    const form = document.querySelector("form")
+    const email = document.querySelector("#email");
+    const nombre = document.querySelector("#nombre");
+    const localidad = document.querySelector("#localidad");
+    const provincia = document.querySelector("#provincia");
+    const direccion = document.querySelector("#direccion");
+    const cp = document.querySelector("#cp");
+    const telefono = document.querySelector("#telefono");
+    const submit = document.querySelector("#submit");
+        let emailValue;
+        let nombreValue;
+        let localidadValue;
+        let provinciaValue;
+        let direccionValue;
+        let cpValue;
+        let telefonoValue;
+        email.addEventListener("input",(e)=>{
+            emailValue = e.target.value 
+        })
+        nombre.addEventListener("input",(e)=>{
+            nombreValue = e.target.value 
+        })
+        localidad.addEventListener("input",(e)=>{
+            localidadValue = e.target.value 
+        })
+        provincia.addEventListener("input",(e)=>{
+            provinciaValue = e.target.value 
+        })
+        direccion.addEventListener("input",(e)=>{
+            direccionValue = e.target.value 
+        })
+        cp.addEventListener("input",(e)=>{
+            cpValue = e.target.value 
+        })
+        telefono.addEventListener("input",(e)=>{
+            telefonoValue = e.target.value 
+        })
+        let values = {};
+       
+     
+
+    const transf = document.querySelector("#transferencia");
+    const efect = document.querySelector("#efectivo");
+
+    const selectMethod = {
+        efect:undefined,
+        transf:undefined
+    }
+    transf.addEventListener("click",(e)=>{
+        selectMethod.transf = e.target.checked
+        selectMethod.efect = false
+        /* console.log(selectMethod) */
+    })
+    efect.addEventListener("click",(e)=>{
+        selectMethod.transf = false
+        selectMethod.efect = e.target.checked
+        /* console.log(selectMethod) */
+    })
+
+    submit.addEventListener("click",(e)=>{
+        e.preventDefault()
+        values.email = emailValue;
+        values.nombre = nombreValue
+        values.localidad = localidadValue
+        values.provincia = provinciaValue
+        values.direccion = direccionValue
+        values.cp = cpValue
+        values.telefono = telefonoValue
+        values.method = selectMethod
+        values.cart = {
+            cartDesc:contDatap.innerText,
+            cartTotal:total,
+            cartCant:cant
+        }
+        console.log(values)
+    })
+
+    
+  
+    
+}
+
+
+
+getDataForm()
 renderPagoCarrito();
 payEndApp();
 
