@@ -142,9 +142,8 @@ const transf = document.querySelector("#transferencia");
 const efect = document.querySelector("#efectivo");
 
 const getDataForm = () =>{
-    console.log("tamos on")
-  
-   
+
+
         let emailValue;
         let nombreValue;
         let localidadValue;
@@ -155,9 +154,7 @@ const getDataForm = () =>{
 
         email.addEventListener("input",(e)=>{
            
-            if(!e.data){
-                emailValue = "vacio"
-            }
+            emailValue = e.target.value 
                 
             
             
@@ -186,19 +183,22 @@ const getDataForm = () =>{
 
   
 
-    const selectMethod = {
-        efect:undefined,
-        transf:undefined
-    }
+    let selectMethod =""
     transf.addEventListener("click",(e)=>{
-        selectMethod.transf = e.target.checked
-        selectMethod.efect = false
-        /* console.log(selectMethod) */
+    
+        if(e.target.checked){
+            selectMethod="transferencia"
+            
+        }
+       
     })
     efect.addEventListener("click",(e)=>{
-        selectMethod.transf = false
-        selectMethod.efect = e.target.checked
-        /* console.log(selectMethod) */
+        
+        if(e.target.checked){
+            selectMethod= "efect"
+            
+        }
+    
     })
 
     form.addEventListener("submit",(e)=>{
@@ -218,11 +218,12 @@ const getDataForm = () =>{
             cartDesc:contDatap.innerText,
             cartTotal:total,
             cartCant:cant
-        }
+        } 
+        
 
         
         if(checkErrors(values)){
-            console.log(values)
+            createWppChannel(values)
         }
     })
 
@@ -253,7 +254,7 @@ function checkErrors(values){
     }
     else if (!values.telefono){
         errorHandling("Necesitamos tu telefono",telefono)
-    }else if(!values.method.efect&&!values.method.transf){
+    }else if(!values.method){
         errorHandling("Necesitamos la forma de pago",transf)
         errorHandling("Necesitamos la forma de pago",efect)
     }else{
@@ -279,6 +280,32 @@ function succesBorder(input){
     }
 }
 
+function  createWppChannel(values){
+    /*    values.cart = {
+            cartDesc:contDatap.innerText,
+            cartTotal:total,
+            cartCant:cant
+        } */
+let stringP = `Mi pedido:
+${values.cart.cartDesc}
+Total: $${values.cart.cartTotal}
+Pago: ${values.method}
+
+Mis Datos:
+${values.email}
+${values.nombre}
+${values.localidad}
+${values.provincia}
+${values.direccion}
+${values.cp}
+${values.telefono}
+`
+        
+     let pedido = encodeURI(stringP) 
+     
+    const url = `https://wa.me/5491165427871?text=${pedido}`
+    window.location.replace(url)
+}
 
 getDataForm()
 renderPagoCarrito();
