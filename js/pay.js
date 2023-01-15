@@ -60,7 +60,8 @@ const renderPagoCarrito = () => { // renderizamos el carrito en el dom.
 
 }
 
-const payEndApp =  () => { // se defina final de la app vaciando el carrito y dando mensaje de pago.
+/* const payEndApp =  () => { 
+    // se defina final de la app vaciando el carrito y dando mensaje de pago.
 
     if (carrito.length) {
         let pagoOk = document.querySelector('.alertOk')
@@ -68,7 +69,8 @@ const payEndApp =  () => { // se defina final de la app vaciando el carrito y da
         pagoOk.addEventListener('click', async () => {
            
 
-            const myAlert = Swal.mixin({ // creamos un mixin para editar los estilos del boton 
+            const myAlert = Swal.mixin({ 
+                // creamos un mixin para editar los estilos del boton 
                 customClass: {
                   confirmButton: 'btn btn-info',
                 },
@@ -77,7 +79,7 @@ const payEndApp =  () => { // se defina final de la app vaciando el carrito y da
 
               
 
-            /*  const { value: email } = await myAlert.fire({
+             const { value: email } = await myAlert.fire({
                 title: 'Ingresa Tu Email',
                 input: 'email',
                 inputLabel: 'Direccion de email',
@@ -87,9 +89,10 @@ const payEndApp =  () => { // se defina final de la app vaciando el carrito y da
                 backdrop:false,
                 validationMessage:"Email invalido"
 
-             })  */
+             })  
               
-             /*  let tempParams = { // creamos objeto a enviar con los datos del mail
+              let tempParams = { 
+                // creamos objeto a enviar con los datos del mail
                 from_name:'OZEER_3d@mail.com',
                 to_name : email,
                 message: 'lista de productos comprados....'
@@ -102,7 +105,7 @@ const payEndApp =  () => { // se defina final de la app vaciando el carrito y da
               pay.innerHTML= `
               <div><h3> Mail con datos para el pago Enviados!.. muchas gracias por tu compra 🧡</h3></div>
               <img src='../assets/final.jpg' style="width:300px;border-radius:50%;box-shadow: #505050 0px 0px 5px;" class="m-3"></img>
-              <a href="../index.html"class="btn btn-info text-center m-5"> Regresar </a>` */
+              <a href="../index.html"class="btn btn-info text-center m-5"> Regresar </a>` 
               
             
             contenedorPayCards.innerHTML = ""
@@ -112,7 +115,7 @@ const payEndApp =  () => { // se defina final de la app vaciando el carrito y da
         })
        
     }
-}
+} */
 
 const form = document.querySelector("form")
 const email = document.querySelector("#email");
@@ -288,11 +291,12 @@ ${values.telefono}
         
      let pedido = encodeURI(stringP) 
      
-    const url = `https://wa.me/5491165427871?text=${pedido}`
-    window.location.replace(url)
+     const ejem= "https://web.whatsapp.com/send/?phone=5491165427871&text=Mi+pedido%3A%0Ax2+Goku+impreso+3d%0ATotal%3A+%2410000%0APago%3A+transferencia%0A%0AMis+Datos%3A%0Alucas.200061%40gmail.com%0Aaasd%0AEzeiza%0ABuenos+Aires%0ARepublica+Argentina+890%0A1804%0A01165427871%0A&type=phone_number&app_absent=0"
+    const url = `https://web.whatsapp.com/send/?phone=5491165427871&text=${pedido}&type=phone_number&app_absent=0`
+    window.open(url,"_blank")
 }
 
 getDataForm()
 renderPagoCarrito();
-payEndApp();
+/* payEndApp(); */
 
