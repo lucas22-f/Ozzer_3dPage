@@ -297,10 +297,10 @@ ${values.telefono}
     
      if(isMobile()){
         window.open(urlMobile,"_blank")
-        window.location.replace("/")
+        window.location.replace("../index.html")
      }else{
         window.open(urlDesktop,"_blank")
-        window.location.replace("/")
+        window.location.replace("../index.html")
      }
 
 
