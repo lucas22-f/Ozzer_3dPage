@@ -129,18 +129,22 @@ const payEndApp =  () => { // se defina final de la app vaciando el carrito y da
     }
 }
 
+const form = document.querySelector("form")
+const email = document.querySelector("#email");
+const nombre = document.querySelector("#nombre");
+const localidad = document.querySelector("#localidad");
+const provincia = document.querySelector("#provincia");
+const direccion = document.querySelector("#direccion");
+const cp = document.querySelector("#cp");
+const telefono = document.querySelector("#telefono");
+const inputs  =document.querySelector("input");
+const transf = document.querySelector("#transferencia");
+const efect = document.querySelector("#efectivo");
 
 const getDataForm = () =>{
     console.log("tamos on")
-    const form = document.querySelector("form")
-    const email = document.querySelector("#email");
-    const nombre = document.querySelector("#nombre");
-    const localidad = document.querySelector("#localidad");
-    const provincia = document.querySelector("#provincia");
-    const direccion = document.querySelector("#direccion");
-    const cp = document.querySelector("#cp");
-    const telefono = document.querySelector("#telefono");
-    const submit = document.querySelector("#submit");
+  
+   
         let emailValue;
         let nombreValue;
         let localidadValue;
@@ -148,8 +152,15 @@ const getDataForm = () =>{
         let direccionValue;
         let cpValue;
         let telefonoValue;
+
         email.addEventListener("input",(e)=>{
-            emailValue = e.target.value 
+           
+            if(!e.data){
+                emailValue = "vacio"
+            }
+                
+            
+            
         })
         nombre.addEventListener("input",(e)=>{
             nombreValue = e.target.value 
@@ -173,8 +184,7 @@ const getDataForm = () =>{
        
      
 
-    const transf = document.querySelector("#transferencia");
-    const efect = document.querySelector("#efectivo");
+  
 
     const selectMethod = {
         efect:undefined,
@@ -191,8 +201,11 @@ const getDataForm = () =>{
         /* console.log(selectMethod) */
     })
 
-    submit.addEventListener("click",(e)=>{
+    form.addEventListener("submit",(e)=>{
         e.preventDefault()
+
+       
+
         values.email = emailValue;
         values.nombre = nombreValue
         values.localidad = localidadValue
@@ -206,6 +219,8 @@ const getDataForm = () =>{
             cartTotal:total,
             cartCant:cant
         }
+
+        checkErrors(values);
         console.log(values)
     })
 
@@ -214,6 +229,41 @@ const getDataForm = () =>{
     
 }
 
+function checkErrors(values){
+    if (!values.email){
+        errorHandling("Necesitamos tu email",email)
+    }
+    else if (!values.nombre){
+        errorHandling("Necesitamos tu nombre y apellido",nombre)
+    }
+    else if (!values.localidad){
+        errorHandling("Necesitamos tu localidad",localidad)
+    }
+    else if (!values.provincia){
+        errorHandling("Necesitamos tu provincia",provincia)
+    }
+    else if (!values.direccion){
+        errorHandling("Necesitamos tu direccion",direccion)
+    }
+    else if (!values.cp){
+        errorHandling("Necesitamos tu codigo postal",cp)
+    }
+    else if (!values.telefono){
+        errorHandling("Necesitamos tu telefono",telefono)
+    }else if(!values.method.efect&&!values.method.transf){
+        errorHandling("Necesitamos la forma de pago",transf)
+        errorHandling("Necesitamos la forma de pago",efect)
+    }
+}
+
+function errorHandling(text,input){
+    console.log("llego al handler err")
+   
+    const parentElement = input.parentElement
+    const message = parentElement.querySelector(".error")
+    message.innerText = text
+    message.classList.add("active")
+}
 
 
 getDataForm()

@@ -62,36 +62,43 @@
                         <div class="mb-3">
                             <label for="email" class="form-label">Direccion de Email </label>
                             <input type="email" class="form-control" id="email" aria-describedby="emailHelp">
+                            <span class="error">Necesitamos tu email</span>
                             <div id="emailHelp" class="form-text">Necesitamos tus datos para el pago.</div>
                         </div>
                         <div class="mb-3">
                             <label for="nombre" class="form-label">Nombre y Apellido</label>
                             <input type="text" class="form-control" id="nombre">
+                            <span class="error">Necesitamos tu nombre y apellido</span>
                         </div>
                         <div class="row">
                         <div class="col-6">
                             <label for="localidad" class="form-label">Localidad</label>
                             <input type="text" class="form-control" id="localidad">
+                            <span class="error">Necesitamos Localidad</span>
                         </div>
                             
                         <div class="col-6">
                             <label for="provincia" class="form-label">Provincia</label>
                             <input type="text" class="form-control" id="provincia">
+                            <span class="error">Necesitamos tu Provincia</span>
                         </div>
                             
                         <div class="col-12">
                             <label for="direccion" class="form-label">Direccion</label>
                             <input type="text" class="form-control" id="direccion">
+                            <span class="error">Necesitamos tu Direccion</span>
                         </div>
                            
                         </div >
                         <div class="mb-3">
                             <label for="cp" class="form-label">CP</label>
                             <input type="text" class="form-control" id="cp">
+                            <span class="error">Necesitamos codigo postal</span>
                         </div>
                         <div class="mb-3">
                             <label for="telefono" class="form-label">Numero de Cel</label>
                             <input type="text" class="form-control" id="telefono">
+                            <span class="error">Necesitamos tu telefono</span>
                         </div>
                         
                     </div>
@@ -126,17 +133,20 @@
                             <div class="py-3">
                                 <input type="radio" id="transferencia" name="pago" value="transferencia">
                                 <label for="transferencia">transferencia</label>
+                                <span class="error">Necesitamos una forma de pago</span>
                             </div>
     
                             <div class="py-4 border-bottom ">
                                 <input type="radio" id="efectivo" name="pago" value="efectivo">
                                 <label for="efectivo">efectivo</label>
+                                <span class="error">Necesitamos una forma de pago</span>
                             </div>
+                            
                        
                     </div>
                     
 
-                    <button id="submit" class="  mt-5 btn btn-info">Realizar Pedido.</button>
+                    <button type="submit" class="  mt-5 btn btn-info">Realizar Pedido.</button>
 
                 </div>
 
