@@ -203,4 +203,8 @@ body {  overflow-x: hidden; /* Hide horizontal scrollbar */ }
 .error.active{
   display: block;
 }
+.greenBorder{
+  box-shadow: 0px 0px 0px 0.2px rgb(0, 255, 26);
+  
+}
 

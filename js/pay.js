@@ -137,7 +137,7 @@ const provincia = document.querySelector("#provincia");
 const direccion = document.querySelector("#direccion");
 const cp = document.querySelector("#cp");
 const telefono = document.querySelector("#telefono");
-const inputs  =document.querySelector("input");
+const inputs  =document.querySelectorAll("input");
 const transf = document.querySelector("#transferencia");
 const efect = document.querySelector("#efectivo");
 
@@ -220,8 +220,10 @@ const getDataForm = () =>{
             cartCant:cant
         }
 
-        checkErrors(values);
-        console.log(values)
+        
+        if(checkErrors(values)){
+            console.log(values)
+        }
     })
 
     
@@ -230,6 +232,7 @@ const getDataForm = () =>{
 }
 
 function checkErrors(values){
+    let df = false
     if (!values.email){
         errorHandling("Necesitamos tu email",email)
     }
@@ -253,6 +256,10 @@ function checkErrors(values){
     }else if(!values.method.efect&&!values.method.transf){
         errorHandling("Necesitamos la forma de pago",transf)
         errorHandling("Necesitamos la forma de pago",efect)
+    }else{
+        inputs.forEach((input)=>succesBorder(input))
+        df = true
+        return df
     }
 }
 
@@ -261,6 +268,15 @@ function errorHandling(text,input){
     const message = parentElement.querySelector(".error")
     message.innerText = text
     message.classList.add("active")
+}
+
+function succesBorder(input){
+    const parentElement = input.parentElement
+    parentElement.classList.add("greenBorder")
+    const errorMessage = parentElement.querySelector(".error")
+    if(errorMessage){
+        errorMessage.remove();
+    }
 }
 
 
