@@ -58,21 +58,6 @@ const renderPagoCarrito = () => { // renderizamos el carrito en el dom.
         contenedorPayCards.append(card)
     })
 
-
-
-    if (carrito.length) {
-        const btnPagar = document.createElement('div'); // agregamos boton de pago. 
-        btnPagar.innerHTML = `
-    <div class="d-flex align-items-center justify-content-center pay flex-column">
-        <h5 class="m-3">Total productos:  ${cant}</h5>
-          <h5 class="m-3">Total: $${total}</h5>
-          <div class="btn btn-info alertOk m-3" >Pagar</div>
-         
-    </div>
-   `
-
-        contenedorPayButtons.append(btnPagar);
-    }
 }
 
 const payEndApp =  () => { // se defina final de la app vaciando el carrito y dando mensaje de pago.
@@ -104,20 +89,20 @@ const payEndApp =  () => { // se defina final de la app vaciando el carrito y da
 
              })  */
               
-              let tempParams = { // creamos objeto a enviar con los datos del mail
+             /*  let tempParams = { // creamos objeto a enviar con los datos del mail
                 from_name:'OZEER_3d@mail.com',
                 to_name : email,
                 message: 'lista de productos comprados....'
               }
 
-             await emailjs.send('service_lficazu','template_v2jsmng',tempParams)  // utilizamos la funcion de EmailJs asincrona para hacer envio de un mail
-              
+             await emailjs.send('service_lficazu','template_v2jsmng',tempParams)  
+              // utilizamos la funcion de EmailJs asincrona para hacer envio de un mail
               
               pay.innerHTML = " "
               pay.innerHTML= `
               <div><h3> Mail con datos para el pago Enviados!.. muchas gracias por tu compra 🧡</h3></div>
               <img src='../assets/final.jpg' style="width:300px;border-radius:50%;box-shadow: #505050 0px 0px 5px;" class="m-3"></img>
-              <a href="../index.html"class="btn btn-info text-center m-5"> Regresar </a>`
+              <a href="../index.html"class="btn btn-info text-center m-5"> Regresar </a>` */
               
             
             contenedorPayCards.innerHTML = ""
