@@ -292,8 +292,29 @@ ${values.telefono}
      let pedido = encodeURI(stringP) 
      
      const ejem= "https://web.whatsapp.com/send/?phone=5491165427871&text=Mi+pedido%3A%0Ax2+Goku+impreso+3d%0ATotal%3A+%2410000%0APago%3A+transferencia%0A%0AMis+Datos%3A%0Alucas.200061%40gmail.com%0Aaasd%0AEzeiza%0ABuenos+Aires%0ARepublica+Argentina+890%0A1804%0A01165427871%0A&type=phone_number&app_absent=0"
-    const url = `https://web.whatsapp.com/send/?phone=5491165427871&text=${pedido}&type=phone_number&app_absent=0`
-    window.open(url,"_blank")
+    const urlMobile = `https://wa.me/5491165427871?text=${pedido}`
+     const urlDesktop = `https://web.whatsapp.com/send/?phone=5491165427871&text=${pedido}&type=phone_number&app_absent=0`
+    
+     if(isMobile()){
+        window.open(urlMobile,"_blank")
+        window.location.replace("/")
+     }else{
+        window.open(urlDesktop,"_blank")
+        window.location.replace("/")
+     }
+
+
+    /* window.open(urlDesktop,"_blank")
+    window.location.replace("/") */
+}   
+
+
+function isMobile(){
+        if (navigator.userAgent.match(/Android/i) || navigator.userAgent.match(/webOS/i) || navigator.userAgent.match(/iPhone/i) || navigator.userAgent.match(/iPad/i) || navigator.userAgent.match(/iPod/i) || navigator.userAgent.match(/BlackBerry/i) || navigator.userAgent.match(/Windows Phone/i)) {
+            return true
+        } else {
+            return false
+        }
 }
 
 getDataForm()
