@@ -1,14 +1,6 @@
 # Ozzer_3d
 
-## Aplicacion Creada con Vanilla JS utilicé librerias varias para.... 
-
-### Animaciones 
-
-Se utilizo sweet alert 2 para uso de animaciones
-
-
-![image](https://user-images.githubusercontent.com/71677198/205792706-39614301-4002-4717-8eba-2fc453e5622c.png)
-
+## Aplicacion Creada con Vanilla JS.
 
 
 ### Envio de mails

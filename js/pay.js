@@ -256,9 +256,7 @@ function checkErrors(values){
     }
 }
 
-function errorHandling(text,input){
-    console.log("llego al handler err")
-   
+function errorHandling(text,input){   
     const parentElement = input.parentElement
     const message = parentElement.querySelector(".error")
     message.innerText = text
