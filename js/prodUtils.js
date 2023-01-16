@@ -122,12 +122,15 @@ function searchProducts() { // funcion busqueda de productos
     const imputBuscador = document.querySelector('#buscador');
 
 
+
     let busqueda;
     imputBuscador.addEventListener('input', (e) => {
+        
         busqueda = String(e.target.value).toLowerCase()
     })
 
-    search.addEventListener('click', () => {
+    search.addEventListener('click', (e) => {
+       e.preventDefault
         renderProductosBySearch(busqueda); //llamamos al render de productos por busqueda
         cartContainer.innerText = ""
         !carrito.length && cartContainer.append("Carrito vacio... Agrega productos!");

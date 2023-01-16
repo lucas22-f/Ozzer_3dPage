@@ -130,7 +130,7 @@
 
   <!-- STL charge mailto: -->
 
-  <section style="height: 100vh;">
+  <section style="height: 88vh;">
 
     <div>
       <h2 class="text-center mt-5">Envianos tu archivo STL y nosotros podemos crearlo</h2>
@@ -163,26 +163,37 @@
   <div class="present-cards container-fluid" id="productos">
     <h1 class="text-center">Impresiones 3d</h2>
       <div class="row justify-content-center">
-        <div class="col-12 col-md-2">Filtros
-          <ul class="filter-menu">
-            <li><a href="#productos" class="filterI" data-id="0">Todo</a> </li>
-            <li><a href="#productos" class="filterI" data-id="1">Figuras</a> </li>
-            <li><a href="#productos" class="filterI" data-id="2">Mates</a> </li>
-            <li><a href="#productos" class="filterI" data-id="3">Jardineria</a> </li>
-            <li><a href="#productos" class="filterI" data-id="4">Accesorios</a> </li>
+        
+        <div class="col-12 col-md-2">
+          <div class="navbar navbar-dark navbar-expand-lg ">
+            <p>Filtros</p>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="true" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+          </div>
           
-          </ul>
+          <div class="collapse show" id="navbarSupportedContent">
+            <ul class="filter-menu navbar-nav" >
+              <li><a href="#productos" class="filterI" data-id="0">Todo</a> </li>
+              <li><a href="#productos" class="filterI" data-id="1">Figuras</a> </li>
+              <li><a href="#productos" class="filterI" data-id="2">Mates</a> </li>
+              <li><a href="#productos" class="filterI" data-id="3">Jardineria</a> </li>
+              <li><a href="#productos" class="filterI" data-id="4">Accesorios</a> </li>
+            
+            </ul>
+          </div>
 
-          <form>
-            <div class="mb-3">
-              <label for="buscador" class="form-label">Buscador</label>
-              <input type="text" class="form-control" id="buscador" aria-describedby="buscador">
-              <div id="buscador" class="form-text">Ingresa el nombre de tu producto</div>
-            </div>
-            <div class="btn btn-info search">Buscar</div>
-          </form>
-
+            <form class="search">
+              <div class="mb-3">
+                <label for="buscador" class="form-label">Buscador</label>
+                <input type="text" class="form-control" id="buscador" aria-describedby="buscador">
+                <div id="buscador" class="form-text">Ingresa el nombre de tu producto</div>
+              </div>
+              <button type="submit" class="btn btn-info">Buscar</button>
+            </form>
         </div>
+
+       
 
         
 

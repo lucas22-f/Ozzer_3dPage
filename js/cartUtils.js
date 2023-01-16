@@ -9,22 +9,25 @@ const renderCarrito = () => {
         const productoEnCarro = document.createElement("div");
         productoEnCarro.classList.add("productoCarro");
         productoEnCarro.innerHTML = `
-        <div class="row rounded" style="margin:3%">
-            <img class="col-sm-12 col-md-4" src="${pEncarro.img}" style ="width:11rem" alt="Card image cap">
-            <div class="col-12 col-xl-8 d-flex justify-content-between">
-                <div>
-                    <h5 class="">${pEncarro.nombreProd}</h5>
+        <div class="row border-bottom shadow p-5" style="margin:3%">
+            <div class="col-12 col-md-6 my-2">
+                <img class="img-fluid" src="${pEncarro.img}" style ="width:11rem" alt="Card image cap">
+            </div>
+           
+            <div class="col-12 col-md-6 ">
+                <div class="my-2">
+                    <h5>${pEncarro.nombreProd}</h5>
                     <h3>$${pEncarro.precio}</h3>
-                    <p class="">${pEncarro.descripcion}</p>
+                    <p>${pEncarro.descripcion}</p>
                     <div>
                         <a class="btn btn-info elim" data-id=${pEncarro.id}>Eliminar del carro</a>
                     </div>
                 </div>
-                <div>
+                <div class="mt-3">
                     <button class="btn btn-light bg-dark text-light addCant" data-id=${pEncarro.id}>+</button>
                     <button class="btn btn-light bg-dark text-light disCant" data-id=${pEncarro.id}>-</button>
                     
-                    <h5 class="mt-3"> Cantidad: ${pEncarro.cantidad} </h5>
+                    <h5 class="my-3"> Cantidad: ${pEncarro.cantidad} </h5>
                 </div>
             </div>
         </div>
@@ -110,8 +113,10 @@ function scrollCartController() {
         return document.documentElement || document.body;
     };
     const corte = 1200;
-
+    cartCountBot.classList.add("hidden");
+    
     document.addEventListener("scroll", () => {
+        
         if (scrollContainer().scrollTop > corte) {
             cartCountBot.classList.remove("hidden");
         } else {

@@ -27,10 +27,10 @@ fetch("./json/data.json") // llamamos a la funcion fetch para traer los datos.
 
 const filterItems = () => {
     // agregamos filtro para renderizado por categorias...
-
+    scrollCartController() // ejecutamos controlador de carrito en scroll.
     renderProductos(); // renderizamos primera vez por defecto todos los productos
     searchProducts();// renderizamos por busqueda los productos
-    scrollCartController() // ejecutamos controlador de carrito en scroll.
+    
 
     filterI.forEach((el) => {
         el.addEventListener("click", (e) => {
