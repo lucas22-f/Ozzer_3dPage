@@ -29,18 +29,18 @@ const renderProductos = (filterID) => {
         //si no  hay filtro
         listaProductos.forEach((producto) => {
             const card = document.createElement("div");
-            card.classList.add("card", "bg-dark");
-            card.style = "width: 18rem";
+            card.classList.add("card", "bg-dark","col-4","card-mobile");
+            
             card.innerHTML = `
             <img class="card-img-top p-4" src="${producto.img}" alt="Card image cap">
             
             <div class="card-body">
-                <h5 class="card-title">${producto.nombreProd}</h5>
-                <h3>$${producto.precio}</h3>
-                <p class="card-text">${producto.descripcion}</p>
+                <p class="card-title">${producto.nombreProd}</p>
+                <p>$${producto.precio}</p>
+                <p class="">${producto.descripcion}</p>
                 
              
-                <a class="btn btn-info pcard" data-id=${producto.id}>Añadir al carrito</a>
+                <a class="btn btn-info pcard card-mobile-btn" data-id=${producto.id}>Añadir al carrito</a>
                
             </div>
             <div class="" id="prodAlert" data-id="${producto.id}"></div>
