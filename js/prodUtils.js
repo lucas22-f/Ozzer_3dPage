@@ -8,13 +8,12 @@ const renderProductos = (filterID) => {
         let nuevoArr = listaProductos.filter((el) => el.categoria == filterID);
         nuevoArr.forEach((producto) => {
             const card = document.createElement("div");
-            card.classList.add("card", "bg-dark");
-            card.style = "width: 18rem";
+            card.classList.add("card", "bg-dark","card-mobile");
             card.innerHTML = `
         <img class="card-img-top p-4" src="${producto.img}" alt="Card image cap">
         <div class="card-body">
-            <h5 class="card-title">${producto.nombreProd}</h5>
-            <h3>$${producto.precio}</h3>
+            <p class="card-title">${producto.nombreProd}</p>
+            <p>$${producto.precio}</p>
             <p class="card-text">${producto.descripcion}</p>
             
           
@@ -29,7 +28,7 @@ const renderProductos = (filterID) => {
         //si no  hay filtro
         listaProductos.forEach((producto) => {
             const card = document.createElement("div");
-            card.classList.add("card", "bg-dark","col-4","card-mobile");
+            card.classList.add("card", "bg-dark","card-mobile");
             
             card.innerHTML = `
             <img class="card-img-top p-4" src="${producto.img}" alt="Card image cap">
@@ -56,7 +55,11 @@ const renderProductos = (filterID) => {
 const agregarArrayCarrito = () => {// si hacen click en alguna card agregamos al ARRAY del carrito.
 
     const cardSelector = document.querySelectorAll(".pcard");
-    !carrito.length && cartContainer.append("Carrito vacio... Agrega productos!");
+    if(!carrito.length){
+        cartContainer.innerHTML=""
+        cartContainer.append("Carrito vacio... Agrega productos!");
+    }
+     
     cardSelector.forEach((el) => {
         el.addEventListener("click", (e) => { // agregamos un evento al boton de agregar al carrito.
             let productoAgregar = listaProductos.find(
