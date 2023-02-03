@@ -176,6 +176,24 @@ body {  overflow-x: hidden; /* Hide horizontal scrollbar */ }
   color: #7e7e7e;
   transition: all 0.5s;
 }
+.cartCountBot2{
+  position: fixed;
+  right: 0%;
+  bottom: 5%;
+  padding: 0.3%;
+}
+
+.s-wpp2{
+  font-size: 1.7rem;
+  color: rgba(208, 220, 231, 0.89);
+  transition: all 0.5s;
+  padding-left: 6px;
+  padding-right: 6px;
+}
+.bgwpp{
+  background-color: #1da850;
+  border-radius: 50%;
+}
 .s-wpp:hover {
   color: #1da850;
 }
