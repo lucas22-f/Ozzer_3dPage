@@ -57,7 +57,7 @@ const eliminarProductoDelCarro = () => {
             let indice = carrito.indexOf(productoQuitar);
             carrito.splice(indice, 1);
             cartCount.innerText = carrito.length;
-            cartCount2.innerText = carrito.length;
+          
             renderCarrito();
         });
     });
@@ -109,25 +109,31 @@ function cantController(){
 
 function scrollCartController() {
     const cartCountBot = document.querySelector(".cartCountBot2");
+    const UpController = document.querySelector(".UpController");
     const cartCountBot3 = document.querySelector(".cartCountBot3");
+    const cartCountBot4 = document.querySelector(".cartCountBot4");
     // Control del Boton Carrito en el scroll. 
     const scrollContainer = () => {
         return document.documentElement || document.body;
     };
     const corte = 1200;
     cartCountBot.classList.add("hidden");
-    
+    cartCountBot3.classList.add("hidden");
+
+    cartCountBot3.addEventListener("click",()=>{
+        cartCountBot4.classList.toggle("animate__fadeInUp");
+    })
+
+
     document.addEventListener("scroll", ()=> {
         if (scrollContainer().scrollTop > corte) {
-            cartCountBot3.classList.remove("hidden");
-            cartCountBot3.addEventListener("click", () => {
+           
+            UpController.addEventListener("click", () => {
                 window.scrollTo({
                     top: 0,
                     behavior: "smooth"
                 });
             });
-        } else {
-            cartCountBot3.classList.add("hidden");
         }
     });
 
@@ -135,8 +141,10 @@ function scrollCartController() {
         
         if (scrollContainer().scrollTop > corte) {
             cartCountBot.classList.remove("hidden");
+            cartCountBot3.classList.remove("hidden");
         } else {
             cartCountBot.classList.add("hidden");
+            cartCountBot3.classList.add("hidden");
         }
     });
 }
