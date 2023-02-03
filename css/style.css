@@ -196,6 +196,12 @@ body {  overflow-x: hidden; /* Hide horizontal scrollbar */ }
   }
 }
 
+
+.nav-Ozeer{
+  align-items: center;
+}
+
+
 .ondisplay{
   display: none;
 }
