@@ -183,6 +183,15 @@ body {  overflow-x: hidden; /* Hide horizontal scrollbar */ }
   padding: 0.3%;
 }
 
+
+.cartCountBot3{
+  position: fixed;
+  right: 0;
+  margin-right: 30px;
+  bottom: 15%;
+  cursor: pointer;
+}
+
 .s-wpp2{
   font-size: 1.7rem;
   color: rgba(208, 220, 231, 0.89);

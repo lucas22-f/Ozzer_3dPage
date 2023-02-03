@@ -100,7 +100,7 @@ function cantController(){
 
     let sumaCantCarrito = arrCantidad.reduce((acc, el) => acc + el, 0); // seteamos la cantidad de productos en el carrito 
     cartCount.innerText = sumaCantCarrito;
-    cartCount2.innerText = sumaCantCarrito;
+    
 
 
 
@@ -108,13 +108,29 @@ function cantController(){
 
 
 function scrollCartController() {
-    const cartCountBot = document.querySelector(".cartCountBot");    // Control del Boton Carrito en el scroll. 
+    const cartCountBot = document.querySelector(".cartCountBot2");
+    const cartCountBot3 = document.querySelector(".cartCountBot3");
+    // Control del Boton Carrito en el scroll. 
     const scrollContainer = () => {
         return document.documentElement || document.body;
     };
     const corte = 1200;
     cartCountBot.classList.add("hidden");
     
+    document.addEventListener("scroll", ()=> {
+        if (scrollContainer().scrollTop > corte) {
+            cartCountBot3.classList.remove("hidden");
+            cartCountBot3.addEventListener("click", () => {
+                window.scrollTo({
+                    top: 0,
+                    behavior: "smooth"
+                });
+            });
+        } else {
+            cartCountBot3.classList.add("hidden");
+        }
+    });
+
     document.addEventListener("scroll", () => {
         
         if (scrollContainer().scrollTop > corte) {
