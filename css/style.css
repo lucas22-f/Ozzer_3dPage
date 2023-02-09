@@ -2,7 +2,9 @@
 
 body {
   color: white;
-  background-color: rgb(28, 28, 28);
+  background-image: url("../assets/Backround.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
   font-family: 'Quicksand', sans-serif;
   min-height: 100vh; 
   margin:0;
@@ -153,7 +155,7 @@ body {  overflow-x: hidden; /* Hide horizontal scrollbar */ }
 
 .s-fb {
   font-size: 1.4rem;
-  color: #7e7e7e;
+  color: white;
   transition: all 0.5s;
 }
 
@@ -163,7 +165,7 @@ body {  overflow-x: hidden; /* Hide horizontal scrollbar */ }
 
 .s-ig {
   font-size: 1.4rem;
-  color: #7e7e7e;
+  color: white;
   transition: all 0.5s;
 }
 
