@@ -9,7 +9,9 @@ body {
   min-height: 100vh; 
   margin:0;
 }
-
+.bgOzz{
+  background-color: rgba(0,0,0,0.75);
+}
 /* NAV CSS  */
 .logo {
   padding: 20px;

@@ -8,7 +8,7 @@ const renderProductos = (filterID) => {
         let nuevoArr = listaProductos.filter((el) => el.categoria == filterID);
         nuevoArr.forEach((producto) => {
             const card = document.createElement("div");
-            card.classList.add("card", "bg-dark","card-mobile");
+            card.classList.add("card","card-mobile");
             card.innerHTML = `
         <img class="card-img-top p-4" src="${producto.img}" alt="Card image cap">
         <div class="card-body">
@@ -28,7 +28,7 @@ const renderProductos = (filterID) => {
         //si no  hay filtro
         listaProductos.forEach((producto) => {
             const card = document.createElement("div");
-            card.classList.add("card", "bg-dark","card-mobile");
+            card.classList.add("card","card-mobile","bgOzz");
             
             card.innerHTML = `
             <img class="card-img-top p-4" src="${producto.img}" alt="Card image cap">
