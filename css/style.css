@@ -124,7 +124,7 @@ body {  overflow-x: hidden; /* Hide horizontal scrollbar */ }
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: #212121;
+  background-color: rgba(0,0,0,0.75);
 }
 .miFooter .contfooter {
   width: 100%;
@@ -177,7 +177,7 @@ body {  overflow-x: hidden; /* Hide horizontal scrollbar */ }
 
 .s-wpp {
   font-size: 1.4rem;
-  color: #7e7e7e;
+  color: white;
   transition: all 0.5s;
 }
 .cartCountBot2{
@@ -207,7 +207,7 @@ body {  overflow-x: hidden; /* Hide horizontal scrollbar */ }
 
 .s-wpp2{
   font-size: 1.7rem;
-  color: rgba(208, 220, 231, 0.89);
+  color: white;
   transition: all 0.5s;
   padding-left: 6px;
   padding-right: 6px;
@@ -221,7 +221,7 @@ body {  overflow-x: hidden; /* Hide horizontal scrollbar */ }
 }
 
 .mobile-off{
-  display: none 
+  display: none !important
 }
 .mobile-on{
   display: flex !important
@@ -232,7 +232,7 @@ body {  overflow-x: hidden; /* Hide horizontal scrollbar */ }
     display: flex !important
   }
   .mobile-on{
-    display: none;
+    display: none !important
   }
 }
 
