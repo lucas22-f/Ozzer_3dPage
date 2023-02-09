@@ -217,15 +217,15 @@ body {  overflow-x: hidden; /* Hide horizontal scrollbar */ }
 }
 
 .mobile-off{
-  display: none;
+  display: none 
 }
 .mobile-on{
-  display: block;
+  display: flex !important
 }
 
-@media (max-width:600px){
+@media (max-width:800px){
   .mobile-off{
-    display: block;
+    display: flex !important
   }
   .mobile-on{
     display: none;

@@ -57,6 +57,7 @@ const eliminarProductoDelCarro = () => {
             let indice = carrito.indexOf(productoQuitar);
             carrito.splice(indice, 1);
             cartCount.innerText = carrito.length;
+            
           
             renderCarrito();
         });
@@ -100,7 +101,7 @@ function cantController(){
 
     let sumaCantCarrito = arrCantidad.reduce((acc, el) => acc + el, 0); // seteamos la cantidad de productos en el carrito 
     cartCount.innerText = sumaCantCarrito;
-    
+    cartCount2.innerText = sumaCantCarrito
 
 
 
@@ -119,11 +120,26 @@ function scrollCartController() {
     const corte = 1200;
     cartCountBot.classList.add("hidden");
     cartCountBot3.classList.add("hidden");
+    cartCountBot4.classList.add("hidden");
+    cartCountBot4.classList.add("animate__animated");
 
     cartCountBot3.addEventListener("click",()=>{
-        cartCountBot4.classList.toggle("animate__fadeInUp");
+        cartCountBot4.classList.remove("hidden");
+        
+        if(cartCountBot4.classList.contains("animate__fadeInUp")){
+            cartCountBot4.classList.remove("animate__fadeInUp");
+            cartCountBot4.classList.add("animate__fadeOutDown");
+            setTimeout(()=>{
+                cartCountBot4.classList.add("hidden");
+            },1000)
+            
+        }else{
+            cartCountBot4.classList.remove("animate__fadeOutDown");
+            cartCountBot4.classList.add("animate__fadeInUp");
+            
+        }
     })
-
+    cartCountBot4.classList.add("hidden");
 
     document.addEventListener("scroll", ()=> {
         if (scrollContainer().scrollTop > corte) {
