@@ -136,13 +136,13 @@ body {  overflow-x: hidden; /* Hide horizontal scrollbar */ }
   flex-direction: column;
   align-items: center;
 }
-.miFooter .row .foolink a {
+.foolink a {
   justify-content: center;
   text-decoration: none;
   color: #fff;
   margin: 10px;
 }
-.miFooter .row .foolink a:hover {
+.foolink a:hover {
   color: aqua;
   cursor: pointer;
 }
