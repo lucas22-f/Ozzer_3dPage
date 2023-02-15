@@ -124,6 +124,7 @@ function scrollCartController() {
     cartCountBot4.classList.add("animate__animated");
 
     cartCountBot3.addEventListener("click",()=>{
+        console.log("HOLA");
         cartCountBot4.classList.remove("hidden");
         
         if(cartCountBot4.classList.contains("animate__fadeInUp")){

@@ -241,7 +241,10 @@ body {  overflow-x: hidden; /* Hide horizontal scrollbar */ }
   align-items: center;
 }
 .bg-ozeer{
-  background-image: url("../assets/brand.png");
+  background: linear-gradient(to right,#212529, rgba(0,0,0,0.4)),url(../assets/final.jpg);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 
 
@@ -285,6 +288,16 @@ body {  overflow-x: hidden; /* Hide horizontal scrollbar */ }
     font-size: 12px;
     
   }
+}
+.btn-contact{
+  cursor: pointer;
+  border: solid 1px gray;
+  padding: 12px;
+  border-radius: 50%;
+  transition: all 320ms;
+}
+.btn-contact:hover{
+  box-shadow: 0 0 3px white;
 }
 
 
