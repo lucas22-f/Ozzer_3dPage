@@ -242,6 +242,8 @@ body {  overflow-x: hidden; /* Hide horizontal scrollbar */ }
 }
 .bg-ozeer{
   background: linear-gradient(to right,#212529, rgba(0,0,0,0.4)),url(../assets/final.jpg);
+
+  
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
