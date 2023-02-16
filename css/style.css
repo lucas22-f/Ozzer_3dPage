@@ -325,10 +325,13 @@ body {  overflow-x: hidden; /* Hide horizontal scrollbar */ }
   padding: 0;
   margin: 0;
 }
+#imgMob{
+  height: 434px;
+}
 @media(max-width:750px){
   .card-mobile{
     font-size: 12px;
-    width: 10rem;
+    width: 10.4rem;
     padding: 0;
     margin: 0;
   }
@@ -343,6 +346,9 @@ body {  overflow-x: hidden; /* Hide horizontal scrollbar */ }
     margin: 0;
     font-size: 12px;
     
+  }
+  #imgMob{
+    height: 235px;
   }
 }
 .btn-contact{

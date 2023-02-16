@@ -6,20 +6,19 @@ const renderProductos = (filterID) => {
     if (filterID) {
         //si hay filtro
         let nuevoArr = listaProductos.filter((el) => el.categoria == filterID);
+        console.log(nuevoArr)
         nuevoArr.forEach((producto) => {
             const card = document.createElement("div");
-            card.classList.add("card","card-mobile");
+            card.classList.add("card","card-mobile","bgOzz");
             card.innerHTML = `
-        <img class="card-img-top p-4" src="${producto.img}" alt="Card image cap">
+        <img class="card-img-top p-2" id="imgMob" src="${producto.img}" alt="Card image cap">
         <div class="card-body">
             <p class="card-title">${producto.nombreProd}</p>
             <p>$${producto.precio}</p>
             <p class="card-text">${producto.descripcion}</p>
             
-          
-            <a class="btn btn-info pcard" data-id=${producto.id}>Añadir al carrito</a>
-            
         </div>
+        <a class="m-2 btn btn-secondary pcard " data-id=${producto.id}>Añadir al pedido</a>
         <div class="" id="prodAlert" data-id="${producto.id}"></div>
         `;
             contenedorCard.append(card);
@@ -31,17 +30,16 @@ const renderProductos = (filterID) => {
             card.classList.add("card","card-mobile","bgOzz");
             
             card.innerHTML = `
-            <img class="card-img-top p-4" src="${producto.img}" alt="Card image cap">
+            <img class="card-img-top p-2"  id="imgMob" src="${producto.img}" alt="Card image cap">
             
-            <div class="card-body">
+            <div class="p-2">
                 <p class="card-title">${producto.nombreProd}</p>
                 <p>$${producto.precio}</p>
                 <p class="">${producto.descripcion}</p>
-                
-             
-                <a class="btn btn-info pcard card-mobile-btn" data-id=${producto.id}>Añadir al carrito</a>
+               
                
             </div>
+            <a class="m-2 btn btn-secondary pcard " data-id=${producto.id}>Añadir al pedido</a>
             <div class="" id="prodAlert" data-id="${producto.id}"></div>
             `;
             contenedorCard.append(card);
@@ -135,7 +133,6 @@ function searchProducts() { // funcion busqueda de productos
     search.addEventListener('click', (e) => {
        e.preventDefault
         renderProductosBySearch(busqueda); //llamamos al render de productos por busqueda
-        cartContainer.innerText = ""
         !carrito.length && cartContainer.append("Carrito vacio... Agrega productos!");
     })
 
@@ -148,20 +145,17 @@ function renderProductosBySearch(busqueda) { // render busqueda
         if (arr.length) {
             arr.forEach((producto) => {
                 const card = document.createElement("div");
-                card.classList.add("card", "bg-dark");
-                card.style = "width: 18rem";
+                card.classList.add("card","card-mobile","bgOzz");
                 card.innerHTML = `
-                      <img class="card-img-top p-4" src="${producto.img}" alt="Card image cap">
+                      <img class="card-img-top p-1"  id="imgMob" src="${producto.img}" alt="Card image cap">
                       
-                      <div class="card-body">
+                      <div class="p-2">
                           <h5 class="card-title">${producto.nombreProd}</h5>
                           <h3>$${producto.precio}</h3>
                           <p class="card-text">${producto.descripcion}</p>
-                          
-                       
-                          <a class="btn btn-info pcard" data-id=${producto.id}>Añadir al carrito</a>
-                         
                       </div>
+
+                      <a class="m-2 btn btn-secondary pcard" data-id=${producto.id}>Añadir al carrito</a>
                       <div class="" id="prodAlert" data-id="${producto.id}"></div>
                       `;
                 contenedorCard.append(card);

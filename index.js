@@ -35,25 +35,30 @@ const filterItems = () => {
     filterI.forEach((el) => {
         el.addEventListener("click", (e) => {
             // en caso de que hagan click en algun filtro se activa por el swtich!
-            let filterID = Number(el.getAttribute("data-id"));
+            let filterID = el.innerHTML;
+           
             switch (filterID) {
-                case 0:
+                case "Todo":
+                    contenedorCard.innerHTML = "";
+                    renderProductos(0);
+                    break;
+                case "Figuras":
                     contenedorCard.innerHTML = "";
                     renderProductos(filterID);
                     break;
-                case 1:
+                case "Mates":
                     contenedorCard.innerHTML = "";
                     renderProductos(filterID);
                     break;
-                case 2:
+                case "Jardineria":
                     contenedorCard.innerHTML = "";
                     renderProductos(filterID);
                     break;
-                case 3:
+                case "Accesorios":
                     contenedorCard.innerHTML = "";
                     renderProductos(filterID);
                     break;
-                case 4:
+                case "Vasos Copas":
                     contenedorCard.innerHTML = "";
                     renderProductos(filterID);
                     break;
