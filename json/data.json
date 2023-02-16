@@ -2,7 +2,7 @@
     {
         "id": 1,
         "nombreProd": "Mate Afa 3d",
-        "img": "../assets/mateAfa.jpg",
+        "img": "./assets/mateAfa.jpg",
         "precio": 1800,
         "descripcion": "Mate Afa 3d + 2 llaveros",
         "categoria": "Mates"
@@ -10,7 +10,7 @@
     {
         "id": 2,
         "nombreProd": "Copa Fernetera",
-        "img": "../assets/CopaFernet.jpg",
+        "img": "./assets/CopaFernet.jpg",
         "precio": 6500,
         "descripcion":"Copa fernet capacidad 1lts",
         "categoria": "Vasos Copas"
@@ -18,7 +18,7 @@
     {
         "id": 3,
         "nombreProd": "Mate Messi Afa",
-        "img": "../assets/mateMessiAfa.jpg",
+        "img": "./assets/mateMessiAfa.jpg",
         "precio": 2000,
         "descripcion": "Mate con placas de Afa y messi",
         "categoria": "Mates"
@@ -26,57 +26,57 @@
     {
         "id": 4,
         "nombreProd": "Mate mini copa",
-        "img": "../assets/miniCopa.jpg",
+        "img": "./assets/miniCopa.jpg",
         "precio": 4300,
         "descripcion": "Mini copa del mundo incluye llavero de regalo",
         "categoria": "Mates"
     },
     {
         "id": 5,
-        "nombreProd": "Pikachu impreso 3d",
-        "img": "https://cdn.myminifactory.com/assets/object-assets/5ea84312a7211/images/720X720-img-20210531-181852.jpg",
-        "precio": 5000,
-        "descripcion": "pikachu pequeño impreso 3d",
-        "categoria": "Figuras"
+        "nombreProd": "kit 5 Mates + llaveros",
+        "img": "./assets/kit mates.jpeg",
+        "precio": 8000,
+        "descripcion": "Vienen con 2 llaveros x mate",
+        "categoria": "Mates"
     },
     {
         "id": 6,
-        "nombreProd": "Bulbasaur impreso 3d",
-        "img": "https://www.3dshop.com.ar/wp-content/uploads/2021/01/bulbasaur-impresion-3d-shop.jpg",
-        "precio": 5000,
-        "descripcion": "bulbasaur pequeño impreso 3d",
+        "nombreProd": "Mate Stich",
+        "img": "./assets/matestich.jpg",
+        "precio": 2300,
+        "descripcion": "Mate Stich precio para reventa",
         "categoria": "Figuras"
     },
     {
         "id": 7,
-        "nombreProd": "Charmander impreso 3d",
-        "img": "https://images.cults3d.com/AvfKW2oCbRg78h7AE57qNSDgGTs=/516x516/https://files.cults3d.com/uploaders/13568106/photo-file/3cf23dda-90fb-4a8b-8321-62fbcb144635/salamoule.png",
+        "nombreProd": "Lampara 3d",
+        "img": "./assets/lampara.jpg",
         "precio": 6000,
-        "descripcion": "charmander pequeño impreso 3d",
-        "categoria": "Figuras"
+        "descripcion": "lampara diseñada para velador, incluye led",
+        "categoria": "Accesorios"
     },
     {
         "id": 8,
-        "nombreProd": "Iron Man impreso 3d",
-        "img": "https://cdn.myminifactory.com/assets/object-assets/5b50feb9bca1e/images/720X720-de97b6d0-b9aa-460f-9e1b-1748521fbec0.jpg",
-        "precio": 8000,
-        "descripcion": "iron man pequeño impreso 3d",
+        "nombreProd": "Mandalorian Star Wars",
+        "img": "./assets/mandalorian.jpg",
+        "precio": 16000,
+        "descripcion": "Mandalorian Star Wars 25cm alto",
         "categoria": "Figuras"
     },
     {
         "id": 9,
-        "nombreProd": "Sonic impreso 3d",
-        "img": "https://images.cults3d.com/DTLVC9ElIRKUT6AwRnOrDYfrUSQ=/516x516/https://files.cults3d.com/uploaders/5909433/illustration-file/71a6b017-bba8-4687-bb6b-16f12e91a335/Capture%20d%E2%80%99e%CC%81cran%202017-03-16%20a%CC%80%2016.54.14.png",
-        "precio": 5000,
-        "descripcion": "sonic pequeño impreso 3d",
+        "nombreProd": "Mumnra Thundercats",
+        "img": "./assets/munra.jpg",
+        "precio": 16000,
+        "descripcion": "Munra thundercats 25cm alto",
         "categoria": "Figuras"
     },
     {
         "id": 10,
-        "nombreProd": "Llaveros personalizados impreso 3d",
-        "img": "https://http2.mlstatic.com/D_NQ_NP_660022-MLA44966201066_022021-O.jpg",
-        "precio": 1500,
-        "descripcion": "llavero pequeño impreso 3d",
+        "nombreProd": "MultiHerramienta",
+        "img": "./assets/multiHerramienta.jpg",
+        "precio": 1200,
+        "descripcion": "Multi-Herramienta color a eleccion defensa personal + herramienta",
         "categoria": "Accesorios"
     }
 ]
