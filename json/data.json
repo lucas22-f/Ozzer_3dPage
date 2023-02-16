@@ -73,7 +73,7 @@
     },
     {
         "id": 10,
-        "nombreProd": "MultiHerramienta",
+        "nombreProd": "Manopla blitz",
         "img": "./assets/multiHerramienta.jpg",
         "precio": 1200,
         "descripcion": "Multi-Herramienta color a eleccion defensa personal + herramienta",
