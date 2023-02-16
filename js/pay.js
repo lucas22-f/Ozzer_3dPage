@@ -23,7 +23,7 @@ const renderPagoCarrito = () => { // renderizamos el carrito en el dom.
         const card = document.createElement('div');
         card.innerHTML = `
         <div class="row rounded justify-content-between">
-            <img class="img img-fluid col-sm-12 col-md-3 p-3" src="${el.img}" width=200 heigth=200 alt="Card image cap">
+            <img class="img img-fluid col-sm-12 col-md-3 p-3" src=".${el.img}" width=200 heigth=200 alt="Card image cap">
             <div class="col-md-3">
                 <div>
                     <h5 class="m-3 ">${el.nombreProd}</h5>
