@@ -292,9 +292,9 @@ ${values.telefono}
         
      let pedido = encodeURI(stringP) 
      
-     const ejem= "https://web.whatsapp.com/send/?phone=5491165427871&text=Mi+pedido%3A%0Ax2+Goku+impreso+3d%0ATotal%3A+%2410000%0APago%3A+transferencia%0A%0AMis+Datos%3A%0Alucas.200061%40gmail.com%0Aaasd%0AEzeiza%0ABuenos+Aires%0ARepublica+Argentina+890%0A1804%0A01165427871%0A&type=phone_number&app_absent=0"
-    const urlMobile = `https://wa.me/5491165427871?text=${pedido}`
-     const urlDesktop = `https://web.whatsapp.com/send/?phone=5491165427871&text=${pedido}&type=phone_number&app_absent=0`
+     const ejem= "https://web.whatsapp.com/send/?phone=5491138471024&text=Mi+pedido%3A%0Ax2+Goku+impreso+3d%0ATotal%3A+%2410000%0APago%3A+transferencia%0A%0AMis+Datos%3A%0Alucas.200061%40gmail.com%0Aaasd%0AEzeiza%0ABuenos+Aires%0ARepublica+Argentina+890%0A1804%0A01165427871%0A&type=phone_number&app_absent=0"
+    const urlMobile = `https://wa.me/5491138471024?text=${pedido}`
+     const urlDesktop = `https://web.whatsapp.com/send/?phone=5491138471024&text=${pedido}&type=phone_number&app_absent=0`
     
      if(isMobile()){
         window.open(urlMobile,"_blank")
