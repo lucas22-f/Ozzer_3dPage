@@ -362,4 +362,13 @@ body {  overflow-x: hidden; /* Hide horizontal scrollbar */ }
   box-shadow: 0 0 3px white;
 }
 
+.end{
+  color: #fff;
+  transition: all 300ms;
+  text-decoration: none;
+  font-size: 13.1px;
+}
+.end:hover{
+  color: #67c2ff;
+}
 
