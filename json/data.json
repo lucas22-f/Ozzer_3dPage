@@ -51,8 +51,8 @@
         "id": 7,
         "nombreProd": "Lampara 3d",
         "img": "./assets/lampara.jpg",
-        "precio": 6000,
-        "descripcion": "lampara diseñada para velador, incluye led",
+        "precio": 4000,
+        "descripcion": "lampara diseñada para velador, incluye porta foco",
         "categoria": "Accesorios"
     },
     {
@@ -77,6 +77,15 @@
         "img": "./assets/multiHerramienta.jpg",
         "precio": 1500,
         "descripcion": "Multi-Herramienta color a eleccion defensa personal + herramienta",
+        "categoria": "Accesorios"
+    }
+    ,
+    {
+        "id": 11,
+        "nombreProd": "Velador Luna",
+        "img": "./assets/veladorLuna.jpg",
+        "precio": 4000,
+        "descripcion": "Velador noche Luna , incluye porta foco",
         "categoria": "Accesorios"
     }
 ]
