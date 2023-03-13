@@ -88,4 +88,22 @@
         "descripcion": "Velador noche Luna , incluye porta foco",
         "categoria": "Accesorios"
     }
+    ,
+    {
+        "id": 12,
+        "nombreProd": "Mate Imperial",
+        "img": "./assets/mateImperial.jpg",
+        "precio": 2000,
+        "descripcion": "Mate imperial de primera calidad Impreso 3d",
+        "categoria": "Mates"
+    }
+    ,
+    {
+        "id": 13,
+        "nombreProd": "Soporte Notebook",
+        "img": "./assets/soporteNotebook.jpg",
+        "precio": 2500,
+        "descripcion": "Soporte regulable para notebook",
+        "categoria": "Accesorios"
+    }
 ]
